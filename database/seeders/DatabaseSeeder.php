@@ -3,7 +3,17 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
 use Illuminate\Database\Seeder;
+use Database\Seeders\FuelSeeder;
+use Database\Seeders\BrandSeeder;
+use Database\Seeders\TenantSeeder;
+use Database\Seeders\VendorSeeder;
+use Database\Seeders\VehicleSeeder;
+use Database\Seeders\CategorySeeder;
+use Database\Seeders\LocationSeeder;
+use Database\Seeders\TransmissionSeeder;
+use Database\Seeders\TransactionalSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,6 +24,15 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             UserSeeder::class,
+            LocationSeeder::class,
+            VendorSeeder::class,
+            TenantSeeder::class,
+            BrandSeeder::class,
+            CategorySeeder::class,
+            FuelSeeder::class,
+            TransmissionSeeder::class,
+            VehicleSeeder::class,
+            TransactionalSeeder::class
         ]);
         // \App\Models\User::factory(10)->create();
 

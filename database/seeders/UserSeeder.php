@@ -13,12 +13,12 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {   
-        User::factory()->count(10)->create();
+        // User::factory()->count(10)->create();
 
         User::create([
             'NIK' => '1234567890',
             'name' => 'Tengku Muhammad Rafi Rahardiansyah',
-            'email_address' => 'tengkumrafir@gmail.com',
+            'email' => 'tengkumrafir@gmail.com',
             'phone_number' => '081945103388',
             'password' => bcrypt('password'),
             'isVerified' => true,
@@ -28,7 +28,7 @@ class UserSeeder extends Seeder
         User::create([
             'NIK' => '1234567891',
             'name' => 'Muhammad Bin Djafar',
-            'email_address' => 'muhammadbdajafar@gmail.com',
+            'email' => 'muhammadbdajafar@gmail.com',
             'phone_number' => '081945103310',
             'password' => bcrypt('password'),
             'isVerified' => true,

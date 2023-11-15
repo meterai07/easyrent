@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('NIK')->unique();
             $table->string('name');
-            $table->string('email_address')->unique();
+            $table->string('email')->unique();
             $table->string('phone_number')->unique();
             $table->string('password');
             $table->boolean('isVerified')->default(false);
