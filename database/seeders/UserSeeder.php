@@ -26,9 +26,9 @@ class UserSeeder extends Seeder
         ]);
 
         User::create([
-            'NIK' => '1234567891',
+            'NIK' => '6215684615',
             'name' => 'Muhammad Bin Djafar',
-            'email' => 'muhammadbdajafar@gmail.com',
+            'email' => 'muhammadbdjafar@gmail.com',
             'phone_number' => '081945103310',
             'password' => bcrypt('password'),
             'isVerified' => true,

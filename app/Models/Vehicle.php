@@ -8,4 +8,46 @@ use Illuminate\Database\Eloquent\Model;
 class Vehicle extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        "vendor_id",
+        "brand_id",
+        "category_id",
+        "fuel_id",
+        "transmission_id",
+        "name",
+        "year",
+        "status",
+        "price"
+    ];
+
+    public function vendor()
+    {
+        return $this->belongsTo(Vendor::class);
+    }
+
+    public function brand()
+    {
+        return $this->belongsTo(Brand::class);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function fuel()
+    {
+        return $this->belongsTo(Fuel::class);
+    }
+
+    public function transmission()
+    {
+        return $this->belongsTo(Transmission::class);
+    }
+
+    public function transactional()
+    {
+        return $this->hasOne(Transactional::class);
+    }
 }

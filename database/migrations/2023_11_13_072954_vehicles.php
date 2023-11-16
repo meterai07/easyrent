@@ -18,8 +18,9 @@ return new class extends Migration
             $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('fuel_id');
             $table->unsignedBigInteger('transmission_id');
-            $table->string('name')->unique();
-            $table->string('status')->default('available');
+            $table->string('name');
+            $table->string('year');
+            $table->enum('status', ['AVAILABLE', 'RENTED', 'NOT AVAILABLE'])->default('AVAILABLE');
             $table->integer('price')->default(0);
             $table->foreign('vendor_id')->references('id')->on('vendors')->onCascadeDelete();
             $table->foreign('brand_id')->references('id')->on('brands')->onCascadeDelete();
@@ -35,6 +36,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('vehicles');
     }
 };

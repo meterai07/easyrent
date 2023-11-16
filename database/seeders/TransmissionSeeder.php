@@ -14,7 +14,10 @@ class TransmissionSeeder extends Seeder
     public function run(): void
     {
         Transmission::create([
-            "name" => "Matic"
+            "transmissions_type" => "Matic"
+        ]);
+        Transmission::create([
+            "transmissions_type" => "Manual"
         ]);
     }
 }

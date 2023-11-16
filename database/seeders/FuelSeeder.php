@@ -16,5 +16,11 @@ class FuelSeeder extends Seeder
         Fuel::create([
             "name" => "Solar"
         ]);
+        Fuel::create([
+            "name" => "Pertamax"
+        ]);
+        Fuel::create([
+            "name" => "Dexlite"
+        ]);
     }
 }

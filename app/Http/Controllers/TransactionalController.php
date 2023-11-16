@@ -15,7 +15,7 @@ class TransactionalController extends Controller
 {
     public function index()
     {
-
+        return view('transactional.transaction');
     }
 
     public function transaction(StoreTransactionalRequest $request)

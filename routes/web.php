@@ -26,4 +26,5 @@ Route::get('/logout', [UserController::class, 'logout'])->middleware('auth');
 Route::get('/register', [UserController::class, 'registerPage']);
 Route::post('/register', [UserController::class, 'register']);
 
+Route::get('/transaction', [TransactionalController::class, 'index']);
 Route::post('/transaction', [TransactionalController::class, 'transaction'])->middleware('auth');

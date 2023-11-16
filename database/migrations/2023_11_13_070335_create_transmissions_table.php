@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('transmissions', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
+            $table->enum('transmissions_type', ['Matic', 'Manual']);
             $table->timestamps();
         });
     }
