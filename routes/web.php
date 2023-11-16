@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TransactionalController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,3 +25,5 @@ Route::get('/logout', [UserController::class, 'logout'])->middleware('auth');
 
 Route::get('/register', [UserController::class, 'registerPage']);
 Route::post('/register', [UserController::class, 'register']);
+
+Route::post('/transaction', [TransactionalController::class, 'transaction'])->middleware('auth');
