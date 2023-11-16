@@ -11,7 +11,7 @@ class StoreTransactionalRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,10 @@ class StoreTransactionalRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'vehicle_id' => ['required', 'numeric'],
+            'rent_date' => ['required', 'date'],
+            'rent_period' => ['required', 'numeric'],
+            'total_payment' => ['required', 'numeric'],
         ];
     }
 }

@@ -16,5 +16,11 @@ class CategorySeeder extends Seeder
         Category::create([
             "name" => "SUV"
         ]);
+        Category::create([
+            "name" => "Hatchback"
+        ]);
+        Category::create([
+            "name" => "Sedan"
+        ]);
     }
 }

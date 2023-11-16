@@ -15,7 +15,7 @@ class VendorSeeder extends Seeder
     {
         Vendor::create([
             'user_id'=> 1,
-            'location_id'=> '1',
+            'location_id'=> 1,
         ]);
     }
 }

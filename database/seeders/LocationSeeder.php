@@ -14,7 +14,13 @@ class LocationSeeder extends Seeder
     public function run(): void
     {
         Location::create([
-            "name"=> "Malang",
+            "name"=> "Blimbing",
+        ]);
+        Location::create([
+            "name"=> "Sawojajar",
+        ]);
+        Location::create([
+            "name"=> "Klojen",
         ]);
     }
 }

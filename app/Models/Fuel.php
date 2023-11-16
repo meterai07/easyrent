@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Fuel extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'name'
+    ];
+
+    public function vehicle()
+    {
+        return $this->hasMany(Vehicle::class);
+    }
 }

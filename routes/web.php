@@ -1,7 +1,10 @@
 <?php
 
-use App\Http\Controllers\UserController;
+use App\Models\Vehicle;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\VehicleController;
+use App\Http\Controllers\TransactionalController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +27,9 @@ Route::get('/logout', [UserController::class, 'logout'])->middleware('auth');
 
 Route::get('/register', [UserController::class, 'registerPage']);
 Route::post('/register', [UserController::class, 'register']);
+
+Route::get('/transaction', [TransactionalController::class, 'index']);
+Route::post('/transaction', [TransactionalController::class, 'transaction'])->middleware('auth');
+
+Route::get('/product', [VehicleController::class, 'index']);
+Route::get('/product/{id}', [VehicleController::class, 'show']);

@@ -12,7 +12,6 @@ use Database\Seeders\VendorSeeder;
 use Database\Seeders\VehicleSeeder;
 use Database\Seeders\CategorySeeder;
 use Database\Seeders\LocationSeeder;
-use Database\Seeders\TransmissionSeeder;
 use Database\Seeders\TransactionalSeeder;
 
 class DatabaseSeeder extends Seeder
@@ -30,7 +29,6 @@ class DatabaseSeeder extends Seeder
             BrandSeeder::class,
             CategorySeeder::class,
             FuelSeeder::class,
-            TransmissionSeeder::class,
             VehicleSeeder::class,
             TransactionalSeeder::class
         ]);

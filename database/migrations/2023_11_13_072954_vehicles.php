@@ -17,15 +17,15 @@ return new class extends Migration
             $table->unsignedBigInteger('brand_id');
             $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('fuel_id');
-            $table->unsignedBigInteger('transmission_id');
-            $table->string('name')->unique();
-            $table->string('status')->default('available');
+            $table->string('name');
+            $table->string('year');
+            $table->enum('transmissions_type', ['Matic', 'Manual']);
+            $table->enum('status', ['AVAILABLE', 'RENTED', 'NOT AVAILABLE'])->default('AVAILABLE');
             $table->integer('price')->default(0);
             $table->foreign('vendor_id')->references('id')->on('vendors')->onCascadeDelete();
             $table->foreign('brand_id')->references('id')->on('brands')->onCascadeDelete();
             $table->foreign('category_id')->references('id')->on('categories')->onCascadeDelete();
             $table->foreign('fuel_id')->references('id')->on('fuels')->onCascadeDelete();
-            $table->foreign('transmission_id')->references('id')->on('transmissions')->onCascadeDelete();
             $table->timestamps();
         });
     }
@@ -35,6 +35,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('vehicles');
     }
 };
