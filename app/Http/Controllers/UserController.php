@@ -30,9 +30,9 @@ class UserController extends Controller
 
         $user = User::create($validated);
 
-        if ($user) {
-            return redirect()->route('login');
-        }
+        Auth::login($user);
+
+        return redirect()->route('login');
     }
 
     public function login(Request $request): RedirectResponse
