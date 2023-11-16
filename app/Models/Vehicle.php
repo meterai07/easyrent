@@ -14,9 +14,9 @@ class Vehicle extends Model
         "brand_id",
         "category_id",
         "fuel_id",
-        "transmission_id",
         "name",
         "year",
+        "transmissions_type",
         "status",
         "price"
     ];
@@ -39,11 +39,6 @@ class Vehicle extends Model
     public function fuel()
     {
         return $this->belongsTo(Fuel::class);
-    }
-
-    public function transmission()
-    {
-        return $this->belongsTo(Transmission::class);
     }
 
     public function transactional()
