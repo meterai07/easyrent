@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 document.addEventListener('DOMContentLoaded', function() {
   const menuButtons = [
-    { button: document.getElementById('categories-button'), menu: document.querySelector('#category-dd') },
+    { button: document.getElementById('categories-button'), menu: document.querySelector('#categories-dd') },
     { button: document.getElementById('type-button'), menu: document.querySelector('#type-dd') },
     { button: document.getElementById('price-range-button'), menu: document.querySelector('#price-range-dd') }
   ];
