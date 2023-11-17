@@ -30,8 +30,3 @@ Route::post('/register', [UserController::class, 'register']);
 
 Route::get('/transaction', [TransactionalController::class, 'index']);
 Route::post('/transaction', [TransactionalController::class, 'transaction'])->middleware('auth');
-
-Route::get('/product', [VehicleController::class, 'index']);
-Route::get('/product/{id}', [VehicleController::class, 'show']);
-
-Route::view('/product', 'product.page');
