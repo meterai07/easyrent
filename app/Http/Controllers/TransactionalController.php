@@ -15,10 +15,10 @@ class TransactionalController extends Controller
 {
     public function index()
     {
-        return view('transactional.transaction');
+        return view('transaction.page');
     }
 
-    public function transaction(StoreTransactionalRequest $request)
+    public function invoice(StoreTransactionalRequest $request)
     {
         $validated = $request->validated();
 
@@ -52,7 +52,7 @@ class TransactionalController extends Controller
             );
 
             $snapToken = \Midtrans\Snap::getSnapToken($params);
-            return view('transactional.transaction', compact('snapToken', 'transactional'));
+            return view('invoice.page', compact('snapToken', 'transactional'));
         });
     }
 
