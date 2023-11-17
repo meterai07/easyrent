@@ -33,3 +33,5 @@ Route::post('/transaction', [TransactionalController::class, 'transaction'])->mi
 
 Route::get('/product', [VehicleController::class, 'index']);
 Route::get('/product/{id}', [VehicleController::class, 'show']);
+
+Route::view('/product', 'product.page');
