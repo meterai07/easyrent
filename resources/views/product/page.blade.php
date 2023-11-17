@@ -203,7 +203,7 @@
         </div>
     </div>
 
-    <script>
+    {{-- <script>
         document.addEventListener('DOMContentLoaded', function() {
             var menuButton1 = document.getElementById('categories-button');
             var menuButton2 = document.getElementById('type-button');
@@ -232,6 +232,6 @@
                 if (!isClickInside3) { dropdownMenu3.classList.add('hidden');}
             });
         });
-    </script>
+    </script> --}}
 </body>
 @endsection
