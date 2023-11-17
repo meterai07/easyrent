@@ -1,8 +1,10 @@
 <?php
 
-use App\Http\Controllers\TransactionalController;
-use App\Http\Controllers\UserController;
+use App\Models\Vehicle;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\VehicleController;
+use App\Http\Controllers\TransactionalController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,4 +29,4 @@ Route::get('/register', [UserController::class, 'registerPage']);
 Route::post('/register', [UserController::class, 'register']);
 
 Route::get('/transaction', [TransactionalController::class, 'index']);
-Route::post('/invoice', [TransactionalController::class, 'invoice'])->middleware('auth');
+Route::post('/transaction', [TransactionalController::class, 'transaction'])->middleware('auth');
