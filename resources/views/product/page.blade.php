@@ -20,7 +20,7 @@
                         </svg>
                     </button>
                     </div>
-                    <div class="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden" role="menu" aria-orientation="vertical" aria-labelledby="categories-button" tabindex="-1">
+                    <div class="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden" role="menu" aria-orientation="vertical" aria-labelledby="categories-button" tabindex="-1" id="category-dd">
                     <div class="py-1" role="none">
                         <a href="#" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100" role="menuitem" tabindex="-1" id="menu-item-0">Motorcycle</a>
                         <a href="#" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100" role="menuitem" tabindex="-1" id="menu-item-1">Car</a>
@@ -38,7 +38,7 @@
                         </svg>
                     </button>
                     </div>
-                    <div class="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden" role="menu" aria-orientation="vertical" aria-labelledby="type-button" tabindex="-1">
+                    <div class="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden" role="menu" aria-orientation="vertical" aria-labelledby="type-button" tabindex="-1" id="type-dd">
                     <div class="py-1" role="none">
                         <a href="#" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100" role="menuitem" tabindex="-1" id="menu-item-0">Motorcycle</a>
                         <a href="#" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100" role="menuitem" tabindex="-1" id="menu-item-1">Car</a>
@@ -56,7 +56,7 @@
                         </svg>
                     </button>
                     </div>
-                    <div class="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden" role="menu" aria-orientation="vertical" aria-labelledby="price-range-button" tabindex="-1">
+                    <div class="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden" role="menu" aria-orientation="vertical" aria-labelledby="price-range-button" tabindex="-1" id="price-range-dd">
                     <div class="py-1" role="none">
                         <a href="#" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100" role="menuitem" tabindex="-1" id="menu-item-0">Motorcycle</a>
                         <a href="#" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100" role="menuitem" tabindex="-1" id="menu-item-1">Car</a>
@@ -202,23 +202,34 @@
             </div>
         </div>
     </div>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            var menuButton = document.getElementById('categories-button');
-            var menuButton = document.getElementById('type-button');
-            var menuButton = document.getElementById('price-range-button');
-            var dropdownMenu = document.querySelector('.absolute');
+            var menuButton1 = document.getElementById('categories-button');
+            var menuButton2 = document.getElementById('type-button');
+            var menuButton3 = document.getElementById('price-range-button');
+            var dropdownMenu1 = document.querySelector('#category-dd');
+            var dropdownMenu2 = document.querySelector('#type-dd');
+            var dropdownMenu3 = document.querySelector('#price-range-dd');
 
-            menuButton.addEventListener('click', function() {
-                dropdownMenu.classList.toggle('hidden');
-            });
+            menuButton1.addEventListener('click', function() { dropdownMenu1.classList.toggle('hidden'); });
+            menuButton2.addEventListener('click', function() { dropdownMenu2.classList.toggle('hidden'); });
+            menuButton3.addEventListener('click', function() { dropdownMenu3.classList.toggle('hidden'); });
 
             // Close dropdown when clicking outside
             document.addEventListener('click', function(event) {
-                var isClickInside = dropdownMenu.contains(event.target) || menuButton.contains(event.target);
-                if (!isClickInside) {
-                    dropdownMenu.classList.add('hidden');
-                }
+                var isClickInside = dropdownMenu1.contains(event.target) || menuButton1.contains(event.target);
+                if (!isClickInside) { dropdownMenu1.classList.add('hidden');}
+            });
+
+            document.addEventListener('click', function(event) {
+                var isClickInside2 = dropdownMenu2.contains(event.target) || menuButton2.contains(event.target);
+                if (!isClickInside2) { dropdownMenu2.classList.add('hidden');}
+            });
+
+            document.addEventListener('click', function(event) {
+                var isClickInside3 = dropdownMenu3.contains(event.target) || menuButton3.contains(event.target);
+                if (!isClickInside3) { dropdownMenu3.classList.add('hidden');}
             });
         });
     </script>
