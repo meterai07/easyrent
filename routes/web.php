@@ -26,7 +26,7 @@ Route::post('/login', [UserController::class, 'login'])->name('login');
 Route::get('/logout', [UserController::class, 'logout'])->middleware('auth');
 
 Route::get('/register', [UserController::class, 'registerPage']);
-Route::post('/register', [UserController::class, 'register']);
+Route::post('/register', [UserController::class, 'register'])->name('register');
 
 
 Route::get('/product', [UserController::class, 'productPage']);

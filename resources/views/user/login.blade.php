@@ -8,12 +8,15 @@
     <div class="container" id="container">
 
         <div class="form-container register-container">
-            <form action="#">
+            <form action="/register" method="post">
+                @csrf
                 <h1>Register here.</h1>
-                <input type="text" placeholder="Name">
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Password">
-                <button>Register</button>
+                <input type="text" placeholder="Name" name="name">
+                <input type="text" placeholder="NIK" name="NIK">
+                <input type="email" placeholder="email" name="email">
+                <input type="number" placeholder="phone number" name="phone_number">
+                <input type="password" placeholder="Password" name="password">
+                <button type="submit">Register</button>
                 <span>or use your account</span>
                 <div class="social-container">
                     <a href="#" class="social"><i class="lni lni-facebook-fill"></i></a>
@@ -27,8 +30,8 @@
             <form action="/login" method="post">
                 @csrf
                 <h1>Login here.</h1>
-                <input type="email" placeholder="Email" name="email" id="email">
-                <input type="password" placeholder="Password" name="password" id="password">
+                <input type="email" placeholder="Email" name="email">
+                <input type="password" placeholder="Password" name="password">
                 <div class="content">
                     <div class="checkbox">
                         <input type="checkbox" name="checkbox" id="checkbox">

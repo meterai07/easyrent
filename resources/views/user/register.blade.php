@@ -11,19 +11,19 @@
     <form action="/register" method="post">
         @csrf
         <label for="name">Nama</label>
-        <input type="text" name="name" id="name">
+        <input type="text" name="name" id="name2">
         <br>
         <label for="NIK">NIK</label>
-        <input type="text" name="NIK" id="NIK">
+        <input type="text" name="NIK" id="NIK2">
         <br>
         <label for="email">Email</label>
-        <input type="email" name="email" id="email">
+        <input type="email" name="email" id="email2">
         <br>
         <label for="phone_number">Nomor Telepon</label>
-        <input type="number" name="phone_number" id="phone_number">
+        <input type="number" name="phone_number" id="phone_number2">
         <br>
         <label for="password">Password</label>
-        <input type="password" name="password" id="password">
+        <input type="password" name="password" id="password2">
         <br>
         <button type="submit">Register</button>
     </form>

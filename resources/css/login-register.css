@@ -118,7 +118,6 @@ button.ghost {
 
 button.ghost i{
   position: absolute;
-  top: 17px;
   opacity: 0;
   transition: 0.3s ease-in-out;
 }
@@ -159,6 +158,19 @@ input {
   padding: 12px 15px;
   margin: 8px 0;
   width: 100%;
+}
+
+.register-container input{
+  background-color: #eee;
+  border-radius: 10px;
+  border: none;
+  padding: 10px 15px;
+  margin: 6px 0;
+  width: 100%;
+}
+
+.register-container span {
+  margin-top: 2px;
 }
 
 .container {
