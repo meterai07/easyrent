@@ -1,6 +1,7 @@
 @extends('user.layout.main')
 
-<body>
+@section('content')
+<div>
     @if(auth()->check())
         <h1>Selamat Datang {{ auth()->user()->name }}</h1>
         <a href="/logout">Logout</a>
@@ -70,8 +71,7 @@
                 </div>
             </div>
         </div>
-
     </div>
     @endif
-</body>
-</html>
+</div>
+@endsection

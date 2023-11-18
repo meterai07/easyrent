@@ -22,11 +22,6 @@ class UserController extends Controller
         return view('user.register');
     }
 
-    public function productPage()
-    {
-        return view('product.page');
-    }
-
     public function register(StoreUserRequest $request) 
     {
         $validated = $request->validated();
@@ -50,7 +45,7 @@ class UserController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect()->intended('login');
+            return redirect()->intended('product');
         }
 
         return back()->withErrors([

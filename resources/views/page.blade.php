@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Vehicle | @yield('title')</title>
+    <title>Halaman Navbar dan Footer</title>
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
 </head>
 <body>
     <x-navbar />
-    @yield('content')
+    <x-footer />
 </body>
 </html>

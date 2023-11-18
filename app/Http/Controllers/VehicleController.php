@@ -11,13 +11,19 @@ class VehicleController extends Controller
 {
     public function index()
     {
-        return view('product.page');
+        $vehicles = Vehicle::all();
+
+        return view('product.page', [
+            'vehicles' => $vehicles
+        ]);
     }
 
     public function show(Request $request)
-    {
+    {    
+        $vehicle = Vehicle::where('id', $request->id)->first();
+
         return view('product.detail.page', [
-            'vehicle_contoh' => $request->id 
+            'vehicle' => $vehicle
         ]);
     }
 }

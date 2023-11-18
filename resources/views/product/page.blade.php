@@ -74,18 +74,20 @@
         </div>
         <div class="flex flex-col items-center gap-10 pt-11">
             <div class="grid grid-cols-3 gap-10">
-                @foreach (range(1, 9) as $index)
+                @foreach ($vehicles as $vehicle)
                     <div class="flex flex-col p-6 items-center gap-4 rounded-lg shadow-md">
                         <div class="flex flex-col h-auto gap-4 w-80 items-start self-stretch">
-                            <h2 class="text-4xl font-sans font-bold">Mobil {{$index}}</h2>
+                            <h2 class="text-4xl font-sans font-bold">Mobil {{$vehicle->name}}</h2>
                             <h3 class="text-base font-sans">Sedan</h3>
                             <img src="assets/item-product.png" alt="product">
                             <div class="flex w-72 justify-between items-center">
                                 <h5 class="text-base font-sans font-normal text-black">Rp. 500.000/day</h5>
-                                <button type="button" class="flex py-3 pl-6 pr-4 justify-center items-center gap-2 bg-blue-600 rounded-lg">
-                                    <h3 class="text-base font-sans font-semibold text-white">Rent</h3>
-                                    <img src="assets/ArrowRight.svg" alt="">
-                                </button>
+                                <a href="/product/{{ $vehicle->id }}">
+                                    <button type="button" class="flex py-3 pl-6 pr-4 justify-center items-center gap-2 bg-blue-600 rounded-lg">
+                                        <h3 class="text-base font-sans font-semibold text-white">Rent</h3>
+                                        <img src="assets/ArrowRight.svg" alt="">
+                                    </button>
+                                </a>
                             </div>
                         </div>
                     </div>

@@ -3,6 +3,5 @@
 @section('title', 'Detail')
 
 @section('content')
-    {{-- tulis codingannya disini --}}
-    <h1>Contoh Halaman Product Detail  {{ $vehicle_contoh }}</h1>
+    <h1>{{ $vehicle->name }}</h1>
 @endsection

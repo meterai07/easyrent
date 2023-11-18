@@ -9,4 +9,7 @@
     @vite('resources/js/app.js')
     <link rel="stylesheet" href="https://cdn.lineicons.com/4.0/lineicons.css">
 </head>
+<body>
+    @yield('content')
+</body>
 </html>
