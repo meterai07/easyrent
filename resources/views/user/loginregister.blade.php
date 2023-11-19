@@ -2,12 +2,7 @@
 
 @section('content')
 <div>
-    @if(auth()->check())
-        <h1>Selamat Datang {{ auth()->user()->name }}</h1>
-        <a href="/logout">Logout</a>
-    @else
     <div class="container" id="container">
-
         <div class="form-container register-container">
             <form action="/register" method="post">
                 @csrf
@@ -72,6 +67,5 @@
             </div>
         </div>
     </div>
-    @endif
 </div>
 @endsection

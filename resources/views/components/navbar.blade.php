@@ -30,7 +30,7 @@
                 </div>   
             </div>
         @else
-            <a href="/login" class="bg-sky-500 hover:bg-sky-700 text-white   px-4 py-2 rounded-xl">
+            <a href="/login&register" class="bg-sky-500 hover:bg-sky-700 text-white   px-4 py-2 rounded-xl">
                 <h1>Login</h1>
             </a>
         @endif

@@ -23,12 +23,9 @@ use App\Http\Controllers\TransactionalController;
 
 Route::get("/", [VehicleController::class, 'index']);
 
-
-Route::get('/login', [UserController::class, 'loginPage']);
+Route::get('/login', [UserController::class, 'index']);
 Route::post('/login', [UserController::class, 'login'])->name('login');
 Route::get('/logout', [UserController::class, 'logout'])->middleware('auth');
-
-Route::get('/register', [UserController::class, 'registerPage']);
 Route::post('/register', [UserController::class, 'register'])->name('register');
 
 

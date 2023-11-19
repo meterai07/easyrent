@@ -12,9 +12,9 @@ use App\Http\Requests\UpdateUserRequest;
 
 class UserController extends Controller
 {
-    public function loginPage()
+    public function index()
     {
-        return view('user.login');
+        return view('user.loginregister');
     }
 
     public function registerPage()
