@@ -107,7 +107,7 @@
                                 <img src="../assets/bsi-logo.png" alt="BSI Logo" class="ml-auto h-6 w-auto">
                             </label>
                         </div>
-                        <div class="flex flex-row mb-3">
+                        <div class="flex flex-row">
                             <label for="mandiri" class="w-full flex items-center cursor-pointer">
                                 <input type="radio" name="payment_method" id="mandiri" class="form-radio h-4 w-4 text-indigo-600 transition duration-150 ease-in-out mr-2">
                                 <span class="text-sm leading-5 font-medium text-gray-700">Mandiri</span>
@@ -118,8 +118,11 @@
                 </div>
             </div>
         </div>
-        <button class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold ml-4 mt-2 mb-8 py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+        <button class="flex bg-indigo-600 hover:bg-indigo-700 text-white font-bold ml-4 mt-2 mb-8 py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
             Pay Now
+            <div class="ml-2">
+                <img src="../assets/ArrowRight.svg" alt="">
+            </div>
         </button>
     </div>
 {{-- Aside --}}
