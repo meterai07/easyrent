@@ -1,4 +1,4 @@
-<div class="w-full fixed-bottom mt-6">
+<div class="w-full fixed-bottom">
     <div class="flex justify-between px-16 py-10  bg-blue-950 text-white">
         <div class="max-w-md text-left">
             <h1 class="font-bold text-4xl uppercase">easyrent</h1>

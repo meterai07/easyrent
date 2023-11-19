@@ -46,5 +46,28 @@ class VehicleSeeder extends Seeder
             "status" => "NOT AVAILABLE",
             "price" => 3000000
         ]);
+        Vehicle::create([
+            "vendor_id" => 1,
+            "brand_id" => 3,
+            "category_id" => 3,
+            "fuel_id" => 2,
+            "name" => "Land Cruiser",
+            "year" => "2021",
+            "transmissions_type" => "Manual",
+            "status" => "NOT AVAILABLE",
+            "price" => 3000000
+        ]);
+        Vehicle::create([
+            "vendor_id" => 1,
+            "brand_id" => 3,
+            "category_id" => 3,
+            "fuel_id" => 2,
+            "name" => "Range Rover",
+            "year" => "2021",
+            "transmissions_type" => "Manual",
+            "status" => "NOT AVAILABLE",
+            "price" => 3000000
+        ]);
+
     }
 }
