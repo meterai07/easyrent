@@ -1,4 +1,4 @@
-<div class="w-screen shadow-xl">
+<div class="w-full shadow-xl">
     <div class="flex justify-between p-8 items-center text-lg">
         <a href="/product">
             <h1 class="text-2xl hover:text-slate-400">EASYRENT</h1>
