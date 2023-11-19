@@ -70,3 +70,25 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    function slideImage(id) {
+        const displayWidth = document.querySelector('.img-showcase img:first-child').clientWidth;
+        document.querySelector('.img-showcase').style.transform = `translateX(${- (id - 1) * displayWidth}px)`;
+    }
+
+    const imgBtns = document.querySelectorAll('.img-select a');
+    imgBtns.forEach((imgItem) => {
+        imgItem.addEventListener('click', (event) => {
+            event.preventDefault();
+            slideImage(imgItem.dataset.id);
+        });
+    });
+
+    window.addEventListener('resize', () => {
+        const currentImgId = imgBtns.find((imgItem) => imgItem.dataset.id == imgId);
+        slideImage(currentImgId.dataset.id);
+    });
+
+    
+});

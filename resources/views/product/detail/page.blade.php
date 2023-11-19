@@ -6,11 +6,19 @@
     <div class="w-full h-full px-32 py-12 bg-gray-100">
         <div class="flex flex-col gap-7">
             <div class="flex flex-row p-6 gap-4 items-start rounded-lg bg-white">
-                <div class="flex flex-col justify-center items-center gap-4">
-                    <img src="{{asset('assets/product-detail-h1.png')}}" alt="detail-h1">
-                    <div class="flex flex-row items-start justify-between w-[465px]">
+                <div class="flex flex-col items-center gap-4">
+                    <div class="overflow-hidden">
+                        <div class="img-showcase flex w100 transition-all duration-500 ease-in-out">
+                            @foreach (range(1, 5) as $i)
+                                <img src="{{ asset('assets/product-detail-h'.$i.'.jpg') }}" alt="detail-h{{$i}}">
+                            @endforeach
+                        </div>
+                    </div>
+                    <div class="img-select flex justify-between w100">
                         @foreach (range(1, 5) as $i)
-                            <img src="{{asset('assets/product-detail-h2.png')}}" alt="detail-h2">
+                            <a href="#" data-id="{{ $i }}" class="hover:opacity-80 m-1">
+                                <img src="{{ asset('assets/product-detail-h'.$i.'.jpg') }}" alt="detail-h{{$i}}">
+                            </a>
                         @endforeach
                     </div>
                 </div>
@@ -45,8 +53,9 @@
                                 </div>
                             </div>
                         </div>
+                        {{-- INI ADLAH BAGIAN LOVE YANG PERLU DIUBAH --}}
                         <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="23" viewBox="0 0 25 23" fill="none">
+                            <svg class="cursor-pointer" id="favDetailProduct" xmlns="http://www.w3.org/2000/svg" width="25" height="23" viewBox="0 0 25 23" fill="none">
                                 <path d="M24.0001 7.71388C24.0001 9.48503 23.32 11.1862 22.1055 12.4447C19.31 15.3423 16.5986 18.3639 13.6986 21.1566C13.0339 21.7874 11.9794 21.7644 11.3434 21.105L2.9885 12.4447C0.463145 9.82689 0.463145 5.60085 2.9885 2.98313C5.53867 0.339689 9.69316 0.339689 12.2433 2.98313L12.547 3.29791L12.8505 2.98331C14.0732 1.71523 15.7385 1 17.478 1C19.2176 1 20.8827 1.71516 22.1055 2.98313C23.3201 4.24165 24.0001 5.94276 24.0001 7.71388Z" fill="#FF0000" stroke="black" stroke-width="1.9" stroke-linejoin="round"/>
                             </svg>
                         </div>
@@ -153,46 +162,32 @@
                                 <h3 class="font-sans font-bold text-lg text-black self-end">/5.0</h3>
                             </div>
                             <h2 class="font-sans font-bold text-sm text-black">100% buyers are satisfied</h2>
-                            <h2 class="font-sans font-bold text-sm text-black">16 rating | 5 ulasan</h2>
+                            <h2 class="font-sans font-bold text-sm text-black">16 rating | 5 review</h2>
                         </div>
                         <div class="flex h-[105px] flex-col justify-between items-start">
                             <div class="flex flex-col w-48 justify-between items-center">
-                                <div class="flex items-center justify-between gap-1">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
-                                        <path d="M3.65743 3.91015L5.09963 1.00513C5.28474 0.632201 5.81963 0.632201 6.00474 1.00513L7.44692 3.91015L10.6721 4.37886C11.0859 4.439 11.2508 4.94476 10.9513 5.23486L8.61793 7.49454L9.1686 10.6868C9.23933 11.0968 8.80654 11.4094 8.43626 11.2158L5.55218 9.70775L2.66809 11.2158C2.29783 11.4094 1.86503 11.0968 1.93574 10.6868L2.48641 7.49454L0.153102 5.23486C-0.146482 4.94476 0.0184454 4.439 0.43225 4.37886L3.65743 3.91015Z" fill="#FFC400"/>
-                                    </svg>
-                                    <h4 class="font-sans text-xs font-bold text-black">4</h4>
-                                    <div style="width: 146px; height: 5px; flex-shrink: 0; border-radius: 90px; background: #B0B0B0;"></div>
-                                    <h4 class="font-sans text-xs font-bold text-black">0</h4>
-                                </div>
-                                <div class="flex items-center justify-between gap-1">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
-                                        <path d="M3.65743 3.91015L5.09963 1.00513C5.28474 0.632201 5.81963 0.632201 6.00474 1.00513L7.44692 3.91015L10.6721 4.37886C11.0859 4.439 11.2508 4.94476 10.9513 5.23486L8.61793 7.49454L9.1686 10.6868C9.23933 11.0968 8.80654 11.4094 8.43626 11.2158L5.55218 9.70775L2.66809 11.2158C2.29783 11.4094 1.86503 11.0968 1.93574 10.6868L2.48641 7.49454L0.153102 5.23486C-0.146482 4.94476 0.0184454 4.439 0.43225 4.37886L3.65743 3.91015Z" fill="#FFC400"/>
-                                    </svg>
-                                    <h4 class="font-sans text-xs font-bold text-black">4</h4>
-                                    <div style="width: 146px; height: 5px; flex-shrink: 0; border-radius: 90px; background: #B0B0B0;"></div>
-                                    <h4 class="font-sans text-xs font-bold text-black">0</h4>
-                                </div>
-                                <div class="flex items-center justify-between gap-1">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
-                                        <path d="M3.65743 3.91015L5.09963 1.00513C5.28474 0.632201 5.81963 0.632201 6.00474 1.00513L7.44692 3.91015L10.6721 4.37886C11.0859 4.439 11.2508 4.94476 10.9513 5.23486L8.61793 7.49454L9.1686 10.6868C9.23933 11.0968 8.80654 11.4094 8.43626 11.2158L5.55218 9.70775L2.66809 11.2158C2.29783 11.4094 1.86503 11.0968 1.93574 10.6868L2.48641 7.49454L0.153102 5.23486C-0.146482 4.94476 0.0184454 4.439 0.43225 4.37886L3.65743 3.91015Z" fill="#FFC400"/>
-                                    </svg>
-                                    <h4 class="font-sans text-xs font-bold text-black">4</h4>
-                                    <div style="width: 146px; height: 5px; flex-shrink: 0; border-radius: 90px; background: #B0B0B0;"></div>
-                                    <h4 class="font-sans text-xs font-bold text-black">0</h4>
-                                </div>
-                                <div class="flex items-center justify-between gap-1">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
-                                        <path d="M3.65743 3.91015L5.09963 1.00513C5.28474 0.632201 5.81963 0.632201 6.00474 1.00513L7.44692 3.91015L10.6721 4.37886C11.0859 4.439 11.2508 4.94476 10.9513 5.23486L8.61793 7.49454L9.1686 10.6868C9.23933 11.0968 8.80654 11.4094 8.43626 11.2158L5.55218 9.70775L2.66809 11.2158C2.29783 11.4094 1.86503 11.0968 1.93574 10.6868L2.48641 7.49454L0.153102 5.23486C-0.146482 4.94476 0.0184454 4.439 0.43225 4.37886L3.65743 3.91015Z" fill="#FFC400"/>
-                                    </svg>
-                                    <h4 class="font-sans text-xs font-bold text-black">4</h4>
-                                    <div style="width: 146px; height: 5px; flex-shrink: 0; border-radius: 90px; background: #B0B0B0;"></div>
-                                    <h4 class="font-sans text-xs font-bold text-black">0</h4>
-                                </div>
+                                @php
+                                    $a = 0;
+                                    foreach (range(1, 5) as $i) {
+                                        $a += pow((5 - $i), 3);
+                                    }
+                                @endphp
+                                @foreach (range(1, 5) as $i)
+                                    <div class="flex items-center justify-between gap-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                            <path d="M3.65743 3.91015L5.09963 1.00513C5.28474 0.632201 5.81963 0.632201 6.00474 1.00513L7.44692 3.91015L10.6721 4.37886C11.0859 4.439 11.2508 4.94476 10.9513 5.23486L8.61793 7.49454L9.1686 10.6868C9.23933 11.0968 8.80654 11.4094 8.43626 11.2158L5.55218 9.70775L2.66809 11.2158C2.29783 11.4094 1.86503 11.0968 1.93574 10.6868L2.48641 7.49454L0.153102 5.23486C-0.146482 4.94476 0.0184454 4.439 0.43225 4.37886L3.65743 3.91015Z" fill="#FFC400"/>
+                                        </svg>
+                                        <h4 class="font-sans text-xs font-bold text-black">{{6-$i}}</h4>
+                                        <div style="width: 146px; height: 5px; flex-shrink: 0; border-radius: 90px; background: #B0B0B0;">
+                                            <div style="width: {{(5-$i)**3*100/$a}}%; height: 5px; border-radius: 90px; background: #84ffb5;"></div>
+                                        </div>
+                                        <h4 class="font-sans text-xs font-bold text-black">{{(5-$i)**3}}</h4>
+                                    </div>
+                                @endforeach
                             </div>
                         </div>
                         <div class="flex flex-col w-52 items-start rounded-lg border border-gray-400">
-                            <h2 class="flex w-[113px] h-[46px] px-1 items-center font-sans text-sm font-bold text-black">FILTER ULASAN</h2>
+                            <h2 class="flex w-[113px] h-[46px] px-1 items-center font-sans text-sm font-bold text-black">RIVIEW FILTER</h2>
                             <div class="relative inline-flex w-full h-[46px] justify-between items-center border-t border-gray-400">
                                 <button type="button" id="media-button" class="flex flex-row w-full justify-between items-center rounded-md bg-white px-3.5 py-2 text-sm font-bold text-gray-900 shadow-sm ring-inset ring-gray-300 hover:bg-gray-50 font-sans" aria-expanded="true" aria-haspopup="true">
                                     Media
@@ -227,7 +222,7 @@
                             </div>
                             <div class="relative inline-flex w-full h-[46px] justify-between items-center border-t border-gray-400">
                                 <button type="button" id="topik-ulasan-button" class="flex flex-row w-full justify-between items-center rounded-md bg-white px-3.5 py-2 text-sm font-bold text-gray-900 shadow-sm ring-inset ring-gray-300 hover:bg-gray-50 font-sans" aria-expanded="true" aria-haspopup="true">
-                                    Topik Ulasan
+                                    Review Topics
                                     <svg xmlns="http://www.w3.org/2000/svg" width="11" height="8" viewBox="0 0 11 8" fill="none" aria-hidden="true">
                                         <path d="M0.839355 1.70984L5.41969 6.29018L10 1.70984" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                     </svg>
@@ -245,8 +240,8 @@
                     </div>
                     <div class="flex h-auto pt-6 flex-col justify-between items-start">
                         <div class="flex h-16 flex-col gap-2 items-start">
-                            <h2 class="font-sans text-sm font-bold text-black">ULASAN PILIHAN</h2>
-                            <h3 class="font-sans text-xs font-normal text-black">Menampilkan 5 dari 5 Ulasan</h3>
+                            <h2 class="font-sans text-sm font-bold text-black">Top Review</h2>
+                            <h3 class="font-sans text-xs font-normal text-black">Show 5 of 5 review</h3>
                         </div>
                         <div class="flex flex-col justify-between items-end h-auto gap-8">
                             <div class="flex h-auto w-full flex-col items-start justify-between gap-1">
@@ -453,7 +448,7 @@
                     </div>
                 </div>
                 <div class="flex flex-col w-full gap-6 p-6 bg-white rounded-lg">
-                    <h3 class="font-sans text-xl font-bold">Produk Pilihan Toko</h3>
+                    <h3 class="font-sans text-xl font-bold">Featured Product</h3>
                     <div class="w-full grid grid-cols-2 gap-4">
                         <div class="bg-white w-full flex flex-col p-2 shadow-md rounded">
                             <h2 class="font-sans text-xl font-bold">Mobil 1</h2>
@@ -544,4 +539,22 @@
             </div>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        const loveIcon = document.getElementById('favDetailProduct');
+
+        let isFilled = false;
+
+        loveIcon.addEventListener('click', function() {
+            isFilled = !isFilled;
+
+            if (isFilled) {
+                loveIcon.style.fill = 'none';
+            } else {
+                loveIcon.style.fill = '#FF0000';
+            }
+        });
+    });
+    </script>
 @endsection
