@@ -93,7 +93,7 @@ class VehicleSeeder extends Seeder
         ]);
         
         Vehicle::create([
-            "vendor_id" => 2,
+            "vendor_id" => 1,
             "brand_id" => 5,
             "category_id" => 5,
             "fuel_id" => 2,
@@ -105,13 +105,13 @@ class VehicleSeeder extends Seeder
         ]);
         
         Vehicle::create([
-            "vendor_id" => 2,
+            "vendor_id" => 1,
             "brand_id" => 6,
             "category_id" => 6,
             "fuel_id" => 2,
             "name" => "Ducati Panigale V4",
             "year" => "2021",
-            "transmissions_type" => "Automatic",
+            "transmissions_type" => "Manual",
             "status" => "NOT AVAILABLE",
             "price" => 3500000
         ]);
