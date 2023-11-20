@@ -33,9 +33,11 @@ class VehicleController extends Controller
     public function show(Request $request)
     {    
         $vehicle = Vehicle::where('id', $request->id)->first();
+        $type = Category::where('id', $vehicle->category_id)->first();
 
         return view('product.detail.page', [
-            'vehicle' => $vehicle
+            'vehicle' => $vehicle,
+            'type' => $type
         ]);
     }
 }
