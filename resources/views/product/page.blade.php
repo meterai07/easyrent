@@ -30,6 +30,7 @@
                             id="categories-dd">
                             <div role="none">
                                 <form action="/product" method="get">
+                                    <button type="submit" name="category" class="w-full font-sans text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100" role="menuitem" tabindex="-1" id="categories-menu-item-0" value="all">All Categories</button>
                                     @foreach ($categories as $category)
                                         <button type="submit" name="category" class="w-full font-sans text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100" role="menuitem" tabindex="-1" id="categories-menu-item-{{ $category->id - 1 }}" value="{{ $category->name }}">{{ $category->name }}</button>
                                     @endforeach

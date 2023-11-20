@@ -6,23 +6,23 @@
     <div class="w-full h-full px-32 py-12 bg-gray-100">
         <div class="flex flex-col gap-7">
             <div class="flex flex-row p-6 gap-4 items-start rounded-lg bg-white">
-                <div class="flex flex-col items-center gap-4">
+                <div class="flex flex-col items-center gap-4 w-2/4">
                     <div class="overflow-hidden">
-                        <div class="img-showcase flex w100 transition-all duration-500 ease-in-out">
+                        <div class="img-showcase flex w-full transition-all duration-500 ease-in-out">
                             @foreach (range(1, 5) as $i)
-                                <img src="{{ asset('assets/product-detail-h'.$i.'.jpg') }}" alt="detail-h{{$i}}">
+                                <img src="{{ asset('assets/product-detail-'.$vehicle->id.'-'.$i.'.jpg') }}" alt="detail-h{{$i}}">
                             @endforeach
                         </div>
                     </div>
-                    <div class="img-select flex justify-between w100">
+                    <div class="img-select flex justify-between w-full">
                         @foreach (range(1, 5) as $i)
                             <a href="#" data-id="{{ $i }}" class="hover:opacity-80 m-1">
-                                <img src="{{ asset('assets/product-detail-h'.$i.'.jpg') }}" alt="detail-h{{$i}}">
+                                <img src="{{ asset('assets/product-detail-'.$vehicle->id.'-'.$i.'.jpg') }}" alt="detail-h{{$i}}">
                             </a>
                         @endforeach
                     </div>
                 </div>
-                <div class="flex flex-col items-start gap-7">
+                <div class="flex flex-col items-start gap-7 w-1/2">
                     <div class="flex justify-between items-start self-stretch">
                         <div class="flex flex-col items-start gap-2">
                             <h1 class="font-sans font-bold text-4xl tracking-normal text-black">Mobil {{ $vehicle->name }}</h1>
@@ -67,7 +67,7 @@
                     </div>
                     <div class="flex flex-start gap-9">
                         <div class="flex flex-col items-start gap-6">
-                            @foreach(['Type Car' => '1.1 RB', 'Steering' => '15'] as $label => $value)
+                            @foreach(['Type Car' => $type->name, 'Steering' => $vehicle->transmissions_type] as $label => $value)
                                 <div class="flex w-[137px] justify-between items-start">
                                     <h3 class="font-sans font-normal tracking-tight text-sm text-black">{{ $label }}</h3>
                                     <h3 class="font-sans font-medium tracking-tight text-sm text-blue-900">{{ $value }}</h3>
@@ -86,18 +86,16 @@
                     <div class="flex justify-between items-start self-stretch">
                         <div class="w-auto h-14 flex flex-col">
                             <div class="flex flex-row">
-                                <h3 class="font-sans font-bold text-2xl text-black">Rp. 5.000.000/</h3>
+                                <h3 class="font-sans font-bold text-2xl text-black">Rp. {{ number_format($vehicle->price, 0, ',', '.') }}/</h3>
                                 <h4 class="font-sans font-normal self-end text-sm text-gray-400">days</h4>
                             </div>
-                            <h4 class="font-sans font-normal line-through text-sm text-gray-400">Rp. 10.000.000</h4>
+                            <h4 class="font-sans font-normal line-through text-sm text-gray-400">Rp. {{ number_format($vehicle->price*1.5, 0, ',', '.') }}</h4>
                         </div>
-                        <a href="transaction/{{ $vehicle->id }}">
-                            <button class="flex px-5 py-3.5 justify-center items-center rounded-lg bg-blue-600 font-sans text-sm font-semibold text-white">Rent Now</button>
-                        </a>
+                        <button class="flex px-5 py-3.5 justify-center items-center rounded-lg bg-blue-600 font-sans text-sm font-semibold text-white">Rent Now</button>
                     </div>
                 </div>
             </div>
-            <div class="flex flex-row py-3 px-6 items-center gap-6 rounded-lg bg-white">
+            {{-- <div class="flex flex-row py-3 px-6 items-center gap-6 rounded-lg bg-white">
                 <div class="flex items-center self-center w-20 h-20 rounded-full bg-gray-400"></div>
                 <div class="flex h-[99px] flex-col justify-between items-start gap-3">
                     <div class="flex h-[61px] flex-col justify-between items-start">
@@ -150,7 +148,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <div class="flex gap-6">
                 <div class="flex w-fit py-8 px-6 items-start gap-7 rounded-lg bg-white">
                     <div class="flex flex-col items-start gap-3">
@@ -278,12 +276,7 @@
                                         </svg>
                                         <h3 class="font-sans text-xs font-medium text-black">This review was helpful</h3>
                                     </div>
-                                    <button type="button" class="flex w-20 justify-between items-center">
-                                        <h3 class="font-sans text-xs font-medium text-black text-center">See reply</h3>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8" fill="none">
-                                            <path d="M1.13538 1.70984L5.71571 6.29018L10.2961 1.70984" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                        </svg>
-                                    </button>
+                                    
                                 </div>
                             </div>
                             <div class="flex h-auto w-full flex-col items-start justify-between gap-1">
@@ -318,12 +311,7 @@
                                         </svg>
                                         <h3 class="font-sans text-xs font-medium text-black">This review was helpful</h3>
                                     </div>
-                                    <button type="button" class="flex w-20 justify-between items-center">
-                                        <h3 class="font-sans text-xs font-medium text-black text-center">See reply</h3>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8" fill="none">
-                                            <path d="M1.13538 1.70984L5.71571 6.29018L10.2961 1.70984" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                        </svg>
-                                    </button>
+                                    
                                 </div>
                             </div>
                             <div class="flex h-auto w-full flex-col items-start justify-between gap-1">
@@ -358,12 +346,7 @@
                                         </svg>
                                         <h3 class="font-sans text-xs font-medium text-black">This review was helpful</h3>
                                     </div>
-                                    <button type="button" class="flex w-20 justify-between items-center">
-                                        <h3 class="font-sans text-xs font-medium text-black text-center">See reply</h3>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8" fill="none">
-                                            <path d="M1.13538 1.70984L5.71571 6.29018L10.2961 1.70984" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                        </svg>
-                                    </button>
+                                    
                                 </div>
                             </div>
                             <div class="flex h-auto w-full flex-col items-start justify-between gap-1">
@@ -398,12 +381,7 @@
                                         </svg>
                                         <h3 class="font-sans text-xs font-medium text-black">This review was helpful</h3>
                                     </div>
-                                    <button type="button" class="flex w-20 justify-between items-center">
-                                        <h3 class="font-sans text-xs font-medium text-black text-center">See reply</h3>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8" fill="none">
-                                            <path d="M1.13538 1.70984L5.71571 6.29018L10.2961 1.70984" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                        </svg>
-                                    </button>
+                                    
                                 </div>
                             </div>
                             <div class="flex h-auto w-full flex-col items-start justify-between gap-1">
@@ -438,12 +416,7 @@
                                         </svg>
                                         <h3 class="font-sans text-xs font-medium text-black">This review was helpful</h3>
                                     </div>
-                                    <button type="button" class="flex w-20 justify-between items-center">
-                                        <h3 class="font-sans text-xs font-medium text-black text-center">See reply</h3>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8" fill="none">
-                                            <path d="M1.13538 1.70984L5.71571 6.29018L10.2961 1.70984" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                        </svg>
-                                    </button>
+                                    
                                 </div>
                             </div>
                         </div>
