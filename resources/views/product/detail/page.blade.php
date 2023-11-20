@@ -91,8 +91,8 @@
                             </div>
                             <h4 class="font-sans font-normal line-through text-sm text-gray-400">Rp. {{ number_format($vehicle->price*1.5, 0, ',', '.') }}</h4>
                         </div>
-                        <a href="transaction/{{ $vehicle->id }}">
-                            <button class="flex px-5 py-3.5 justify-center items-center rounded-lg bg-blue-600 font-sans text-sm font-semibold text-white">Rent Now</button>
+                        <a href="/product/{{ $vehicle->id }}/transaction">
+                            <button type="button" class="flex px-5 py-3.5 justify-center items-center rounded-lg bg-blue-600 font-sans text-sm font-semibold text-white">Rent Now</button>
                         </a>
                     </div>
                 </div>

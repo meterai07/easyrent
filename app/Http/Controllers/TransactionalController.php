@@ -15,9 +15,10 @@ use App\Http\Requests\UpdateTransactionalRequest;
 class TransactionalController extends Controller
 {
     public function show(Request $request)
-    {
+    {   
         $vehicles = Vehicle::where('id', $request->id)->first();
-        $categories = Category::where('id', $request->id)->first();
+        $categories = Category::where('id', $vehicles->category_id)->first();
+
         return view("transaction.page", [
             'vehicles' => $vehicles,
             'categories' => $categories

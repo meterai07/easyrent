@@ -35,7 +35,7 @@ Route::post('/register', [UserController::class, 'register'])->name('register');
 Route::get('/product', [VehicleController::class, 'index']);
 Route::get('/product/{id}', [VehicleController::class, 'show']);
 
-Route::get('product/transaction/{id}', [TransactionalController::class, 'show']);
+Route::get('/product/{id}/transaction', [TransactionalController::class, 'show']);
 Route::post('/transaction', [TransactionalController::class, 'transaction'])->middleware('auth');
 
 Route::post('/save-transaction', [TransactionalController::class, 'store'])->name('save.transaction');
