@@ -94,7 +94,7 @@
                                     <h3 class="text-base font-sans">{{ $category->name }}</h3>
                                 @endif
                             @endforeach
-                            <img src="{{ asset('assets/product-detail-'.$vehicle->id.'-1') }}" alt="product" class=" w-full my-4">
+                            <img src="{{ asset('assets/product-detail-'.$vehicle->id.'-1.jpg') }}" alt="product" class=" w-full my-4">
                             <div class="flex justify-between items-center">
                                 <h5 class="text-base font-sans font-normal text-black">Rp. {{ number_format($vehicle->price, 0, ',', '.') }}/day</h5>
                                 <a href="/product/{{ $vehicle->id }}">
@@ -117,7 +117,7 @@
                             <h3 class="text-base font-sans">{{ $category->name }}</h3>
                         @endif
                     @endforeach
-                    <img src="{{ asset('assets/product-detail-'.$vehicle->id.'-1') }}" alt="product" class=" w-full my-4" width="284px" height="auto">
+                    <img src="{{ asset('assets/product-detail-'.$vehicle->id.'-1.jpg') }}" alt="product" class="w-full h-auto object-cover my-4" style="height: 284px;">
                     <div class="flex justify-between items-center">
                         <h5 class="text-base font-sans font-normal text-black">Rp. {{ number_format($vehicle->price, 0, ',', '.') }}/day</h5>
                         <a href="/product/{{ $vehicle->id }}">

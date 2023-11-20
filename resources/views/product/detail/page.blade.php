@@ -10,15 +10,16 @@
                     <div class="overflow-hidden">
                         <div class="img-showcase flex w-full transition-all duration-500 ease-in-out">
                             @foreach (range(1, 5) as $i)
-                                <img src="{{ asset('assets/product-detail-'.$vehicle->id.'-'.$i.'.jpg') }}" alt="detail-h{{$i}}">
+                                <img src="{{ asset('assets/product-detail-'.$vehicle->id.'-'.$i.'.jpg') }}" alt="detail-h{{$i}}" class="w-full h-full aspect-video object-cover object-center">
                             @endforeach
                         </div>
                     </div>
                     <div class="img-select flex justify-between w-full">
                         @foreach (range(1, 5) as $i)
                             <a href="#" data-id="{{ $i }}" class="hover:opacity-80 m-1">
-                                <img src="{{ asset('assets/product-detail-'.$vehicle->id.'-'.$i.'.jpg') }}" alt="detail-h{{$i}}">
+                                <img src="{{ asset('assets/product-detail-'.$vehicle->id.'-'.$i.'.jpg') }}" alt="detail-h{{$i}}" class="w-full h-full aspect-square object-cover object-center">
                             </a>
+                            
                         @endforeach
                     </div>
                 </div>

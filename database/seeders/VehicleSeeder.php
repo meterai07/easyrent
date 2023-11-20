@@ -97,7 +97,7 @@ class VehicleSeeder extends Seeder
             "brand_id" => 5,
             "category_id" => 5,
             "fuel_id" => 2,
-            "name" => "Harley-Davidson Street Glide",
+            "name" => "HD Street Glide",
             "year" => "2020",
             "transmissions_type" => "Manual",
             "status" => "AVAILABLE",
