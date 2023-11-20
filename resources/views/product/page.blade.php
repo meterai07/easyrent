@@ -88,7 +88,7 @@
                 @foreach ($vehicles as $vehicle)
                     @if ($vehicle->category_id == $categoriesRequest->id)
                         <div class="p-6 rounded-lg shadow-lg">
-                            <h2 class="text-4xl font-sans font-bold">Mobil {{ $vehicle->name }}</h2>
+                            <h2 class="text-4xl font-sans font-bold">{{ $vehicle->name }}</h2>
                             @foreach ($categories as $category)
                                 @if ($vehicle->category_id == $category->id)
                                     <h3 class="text-base font-sans">{{ $category->name }}</h3>
@@ -111,7 +111,7 @@
             @else
             @foreach ($vehicles as $vehicle)
                 <div class="p-6 rounded-lg shadow-lg">
-                    <h2 class="text-4xl font-sans font-bold">Mobil {{ $vehicle->name }}</h2>
+                    <h2 class="text-4xl font-sans font-bold">{{ $vehicle->name }}</h2>
                     @foreach ($categories as $category)
                         @if ($vehicle->category_id == $category->id)
                             <h3 class="text-base font-sans">{{ $category->name }}</h3>
