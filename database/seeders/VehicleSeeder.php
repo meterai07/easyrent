@@ -68,6 +68,54 @@ class VehicleSeeder extends Seeder
             "status" => "NOT AVAILABLE",
             "price" => 3000000
         ]);
+        Vehicle::create([
+            "vendor_id" => 1,
+            "brand_id" => 4,
+            "category_id" => 4,
+            "fuel_id" => 2,
+            "name" => "Ninja 300",
+            "year" => "2021",
+            "transmissions_type" => "Manual",
+            "status" => "AVAILABLE",
+            "price" => 1200000
+        ]);
+        
+        Vehicle::create([
+            "vendor_id" => 1,
+            "brand_id" => 2,
+            "category_id" => 4,
+            "fuel_id" => 2,
+            "name" => "CBR500R",
+            "year" => "2022",
+            "transmissions_type" => "Manual",
+            "status" => "RENTED",
+            "price" => 1800000
+        ]);
+        
+        Vehicle::create([
+            "vendor_id" => 2,
+            "brand_id" => 5,
+            "category_id" => 5,
+            "fuel_id" => 2,
+            "name" => "Harley-Davidson Street Glide",
+            "year" => "2020",
+            "transmissions_type" => "Manual",
+            "status" => "AVAILABLE",
+            "price" => 2500000
+        ]);
+        
+        Vehicle::create([
+            "vendor_id" => 2,
+            "brand_id" => 6,
+            "category_id" => 6,
+            "fuel_id" => 2,
+            "name" => "Ducati Panigale V4",
+            "year" => "2021",
+            "transmissions_type" => "Automatic",
+            "status" => "NOT AVAILABLE",
+            "price" => 3500000
+        ]);
+        
 
     }
 }

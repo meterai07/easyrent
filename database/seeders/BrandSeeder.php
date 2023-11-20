@@ -22,5 +22,14 @@ class BrandSeeder extends Seeder
         Brand::create([
             "name" => "Mitsubishi"
         ]);
+        Brand::create([
+            "name" => "Kawasaki"
+        ]);
+        Brand::create([
+            "name" => "Harley-Davidson"
+        ]);
+        Brand::create([
+            "name" => "Ducati"
+        ]);
     }
 }

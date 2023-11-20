@@ -22,5 +22,14 @@ class CategorySeeder extends Seeder
         Category::create([
             "name" => "Sedan"
         ]);
+        Category::create([
+            "name" => "Sport Bike"
+        ]);
+        Category::create([
+            "name" => "Touring Bike"
+        ]);
+        Category::create([
+            "name" => "Superbike"
+        ]);
     }
 }
