@@ -95,7 +95,7 @@
                             @endforeach
                             <img src="assets/item-product.png" alt="product" class=" w-full my-4">
                             <div class="flex justify-between items-center">
-                                <h5 class="text-base font-sans font-normal text-black">Rp. {{ $vehicle->price }}/day</h5>
+                                <h5 class="text-base font-sans font-normal text-black">Rp. {{ number_format($vehicle->price, 0, ',', '.') }}/day</h5>
                                 <a href="/product/{{ $vehicle->id }}">
                                     <button type="button"
                                         class="flex py-3 pl-6 pr-4 justify-center items-center gap-2 bg-blue-600 rounded-lg">
@@ -118,7 +118,7 @@
                     @endforeach
                     <img src="assets/item-product.png" alt="product" class=" w-full my-4">
                     <div class="flex justify-between items-center">
-                        <h5 class="text-base font-sans font-normal text-black">Rp. {{ $vehicle->price }}/day</h5>
+                        <h5 class="text-base font-sans font-normal text-black">Rp. {{ number_format($vehicle->price, 0, ',', '.') }}/day</h5>
                         <a href="/product/{{ $vehicle->id }}">
                             <button type="button"
                                 class="flex py-3 pl-6 pr-4 justify-center items-center gap-2 bg-blue-600 rounded-lg">

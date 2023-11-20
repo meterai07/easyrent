@@ -91,7 +91,9 @@
                             </div>
                             <h4 class="font-sans font-normal line-through text-sm text-gray-400">Rp. 10.000.000</h4>
                         </div>
-                        <button class="flex px-5 py-3.5 justify-center items-center rounded-lg bg-blue-600 font-sans text-sm font-semibold text-white">Rent Now</button>
+                        <a href="transaction/{{ $vehicle->id }}">
+                            <button class="flex px-5 py-3.5 justify-center items-center rounded-lg bg-blue-600 font-sans text-sm font-semibold text-white">Rent Now</button>
+                        </a>
                     </div>
                 </div>
             </div>

@@ -20,7 +20,7 @@
                     <div class="dropdown-list-item absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
                       <div class="py-1">
                         <form method="get" action="/logout">
-                          <button type="submit" class="hover:bg-sky-400 text-gray-700 block w-full px-4 py-2 text-left text-lg" role="menuitem" tabindex="-1" id="menu-item-3">Sign out</button>
+                          <button type="submit" class="hover:bg-indigo-600 text-gray-700 block w-full px-4 py-2 text-left text-lg" role="menuitem" tabindex="-1" id="menu-item-3">Sign out</button>
                         </form>
                       </div>
                     </div>
@@ -30,7 +30,7 @@
                 </div>   
             </div>
         @else
-            <a href="/login" class="bg-sky-500 hover:bg-sky-700 text-white   px-4 py-2 rounded-xl">
+            <a href="/login" class="bg-indigo-600 hover:bg-indigo-700 text-white   px-4 py-2 rounded-xl">
                 <h1>Login</h1>
             </a>
         @endif

@@ -8,6 +8,8 @@
     @vite('resources/css/app.css')
 </head>
 <body class="overflow-scroll bg-zinc-50">
+    <x-navbar />
     @yield('content')
+    <x-footer />
 </body>
 </html>
