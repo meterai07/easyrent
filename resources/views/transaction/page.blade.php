@@ -134,7 +134,7 @@
             <div class="bg-white rounded shadow p-6 m-4">
                 <div class="text-left">
                     <h1 class="text-2xl font-bold mb-1">{{ $vehicles->name }}</h1>
-                    <p class="text mb-6">{{ $categories->name }}</p>
+                        <p class="text mb-6">{{ $categories->name }}</p>
                     <img src="{{ asset('assets/product-detail-'.$vehicles->id.'-1.jpg') }}" alt="product" width="284px" height="auto">
                 </div>
                 <h3 class="text-base font-bold my-6">Rent Summary</h3>

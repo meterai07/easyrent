@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Vehicle;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Requests\StoreVehicleRequest;
 use App\Http\Requests\UpdateVehicleRequest;
 use App\Models\Category;
@@ -34,10 +35,14 @@ class VehicleController extends Controller
     {    
         $vehicle = Vehicle::where('id', $request->id)->first();
         $type = Category::where('id', $vehicle->category_id)->first();
+        $vehicles = Vehicle::all();
+        $categories = Category::all();
 
         return view('product.detail.page', [
             'vehicle' => $vehicle,
-            'type' => $type
+            'type' => $type,
+            'vehicles' => $vehicles,
+            'categories' => $categories
         ]);
     }
 }

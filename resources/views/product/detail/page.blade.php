@@ -19,7 +19,6 @@
                             <a href="#" data-id="{{ $i }}" class="hover:opacity-80 m-1">
                                 <img src="{{ asset('assets/product-detail-'.$vehicle->id.'-'.$i.'.jpg') }}" alt="detail-h{{$i}}" class="w-full h-full aspect-square object-cover object-center">
                             </a>
-                            
                         @endforeach
                     </div>
                 </div>
@@ -98,60 +97,6 @@
                     </div>
                 </div>
             </div>
-            {{-- <div class="flex flex-row py-3 px-6 items-center gap-6 rounded-lg bg-white">
-                <div class="flex items-center self-center w-20 h-20 rounded-full bg-gray-400"></div>
-                <div class="flex h-[99px] flex-col justify-between items-start gap-3">
-                    <div class="flex h-[61px] flex-col justify-between items-start">
-                        <h3 class="font-sans font-normal text-xl text-black">ariz_jaya_rent</h3>
-                        <h4 class="font-sans font-normal text-sm text-black tracking-tight">Active 1 Hour Ago</h4>
-                    </div>
-                    <div class="flex flex-start gap-4">
-                        <div class="flex flex-row justify-center items-center px-1.5 w-28 h-9 rounded-sm gap-2 border border-black bg-neutral-400">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
-                                <path d="M15.3923 12.4399C15.767 11.6783 15.9537 10.838 15.9369 9.98937C15.92 9.14076 15.7001 8.30853 15.2955 7.5624C14.8909 6.81626 14.3134 6.17794 13.6114 5.70087C12.9093 5.22381 12.1032 4.9219 11.2605 4.82043C10.9811 4.16893 10.574 3.57996 10.0634 3.08822C9.55277 2.59647 8.94888 2.21189 8.28733 1.95715C7.62577 1.7024 6.91992 1.58264 6.21136 1.60492C5.5028 1.62719 4.80586 1.79106 4.16161 2.08686C3.51736 2.38265 2.93883 2.8044 2.4601 3.32725C1.98138 3.8501 1.61213 4.46348 1.37413 5.13124C1.13613 5.79901 1.03419 6.50765 1.07431 7.21543C1.11442 7.9232 1.29579 8.61579 1.60772 9.25238L1.09905 11.0334C1.05366 11.1927 1.05167 11.3613 1.09329 11.5217C1.13491 11.682 1.21863 11.8284 1.33578 11.9455C1.45293 12.0627 1.59925 12.1464 1.75961 12.188C1.91997 12.2296 2.08854 12.2276 2.24788 12.1822L4.02889 11.6736C4.56633 11.9374 5.14443 12.1087 5.73886 12.1802C6.02221 12.8441 6.43787 13.4433 6.96047 13.9411C7.48308 14.439 8.10166 14.8252 8.77846 15.076C9.45527 15.3269 10.1761 15.4372 10.8969 15.4003C11.6178 15.3633 12.3236 15.1798 12.9712 14.8611L14.7522 15.3697C14.9115 15.4151 15.0801 15.4171 15.2404 15.3755C15.4008 15.3339 15.5471 15.2502 15.6643 15.133C15.7814 15.0159 15.8651 14.8695 15.9068 14.7092C15.9484 14.5488 15.9464 14.3802 15.901 14.2209L15.3923 12.4399ZM4.086 10.5739C4.03663 10.5739 3.98748 10.5806 3.93991 10.5938L2.18612 11.0952L2.68749 9.34137C2.72506 9.20775 2.70885 9.06474 2.64233 8.94293C2.15386 8.04613 2.0049 7.00335 2.22275 6.00566C2.4406 5.00797 3.01067 4.12219 3.8285 3.51063C4.64633 2.89907 5.65715 2.6027 6.67573 2.67582C7.69431 2.74893 8.65243 3.18664 9.37453 3.90874C10.0966 4.63084 10.5343 5.58896 10.6075 6.60754C10.6806 7.62612 10.3842 8.63693 9.77264 9.45477C9.16108 10.2726 8.2753 10.8427 7.27761 11.0605C6.27992 11.2784 5.23713 11.1294 4.34034 10.6409C4.26259 10.5975 4.17509 10.5744 4.086 10.5739ZM14.3126 12.5289L14.8139 14.2827L13.0601 13.7813C12.9265 13.7437 12.7835 13.7599 12.6617 13.8264C11.6824 14.3592 10.5331 14.4863 9.46108 14.1803C8.38906 13.8743 7.48 13.1597 6.92952 12.1902C7.65697 12.1144 8.36091 11.8892 8.99718 11.5285C9.63345 11.1678 10.1883 10.6795 10.627 10.0943C11.0656 9.50906 11.3786 8.83948 11.5462 8.12757C11.7139 7.41566 11.7326 6.67679 11.6012 5.9573C12.2378 6.10733 12.8312 6.40225 13.3351 6.8191C13.8391 7.23595 14.24 7.76349 14.5068 8.36065C14.7735 8.95781 14.8988 9.60847 14.873 10.262C14.8471 10.9155 14.6708 11.5542 14.3577 12.1284C14.2907 12.2508 14.2744 12.3946 14.3126 12.5289Z" fill="black"/>
-                            </svg>
-                            <h4 class="font-sans font-normal text-sm text-black">Chat Now</h4>
-                        </div>
-                        <div class="flex flex-row justify-center items-center px-1.5 w-32 h-9 rounded-sm gap-2 border border-black bg-neutral-400">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
-                                <path d="M1.59375 6.90626H3.1875V11.1563H2.125C1.9841 11.1563 1.84898 11.2122 1.74935 11.3119C1.64972 11.4115 1.59375 11.5466 1.59375 11.6875C1.59375 11.8284 1.64972 11.9635 1.74935 12.0632C1.84898 12.1628 1.9841 12.2188 2.125 12.2188H14.875C15.0159 12.2188 15.151 12.1628 15.2507 12.0632C15.3503 11.9635 15.4062 11.8284 15.4062 11.6875C15.4062 11.5466 15.3503 11.4115 15.2507 11.3119C15.151 11.2122 15.0159 11.1563 14.875 11.1563H13.8125V6.90626H15.4062C15.5218 6.90614 15.6342 6.86833 15.7264 6.79855C15.8185 6.72878 15.8854 6.63085 15.9169 6.51963C15.9484 6.40841 15.9427 6.28995 15.9008 6.18224C15.8588 6.07453 15.7829 5.98344 15.6845 5.92278L8.77824 1.67278C8.69456 1.62133 8.59824 1.59409 8.5 1.59409C8.40176 1.59409 8.30545 1.62133 8.22176 1.67278L1.31551 5.92278C1.21711 5.98344 1.14118 6.07453 1.09924 6.18224C1.0573 6.28995 1.05163 6.40841 1.0831 6.51963C1.11457 6.63085 1.18145 6.72878 1.27361 6.79855C1.36576 6.86833 1.47816 6.90614 1.59375 6.90626ZM4.25 6.90626H6.375V11.1563H4.25V6.90626ZM9.5625 6.90626V11.1563H7.4375V6.90626H9.5625ZM12.75 11.1563H10.625V6.90626H12.75V11.1563ZM8.5 2.74856L13.5296 5.84376H3.47039L8.5 2.74856ZM16.4688 13.8125C16.4688 13.9534 16.4128 14.0885 16.3132 14.1882C16.2135 14.2878 16.0784 14.3438 15.9375 14.3438H1.0625C0.921604 14.3438 0.786478 14.2878 0.68685 14.1882C0.587221 14.0885 0.53125 13.9534 0.53125 13.8125C0.53125 13.6716 0.587221 13.5365 0.68685 13.4369C0.786478 13.3372 0.921604 13.2813 1.0625 13.2813H15.9375C16.0784 13.2813 16.2135 13.3372 16.3132 13.4369C16.4128 13.5365 16.4688 13.6716 16.4688 13.8125Z" fill="black"/>
-                            </svg>
-                            <h4 class="font-sans font-normal text-sm text-black">Kunjungi Toko</h4>
-                        </div>
-                    </div>
-                </div>
-                <div style="width: 1px; height: 81px; background-color: black;"></div>
-                <div class="flex flex-col h-[78px] gap-8 items-start">
-                    <div class="flex items-start justify-between self-stretch gap-20">
-                        <div class="flex w-32 justify-between items-start">
-                            <h3 class="font-sans font-normal text-sm text-black">Rated</h3>
-                            <h3 class="font-sans font-medium text-sm text-blue-900">1.1 K</h3>
-                        </div>
-                        <div class="flex w-72 justify-between items-start">
-                            <h3 class="font-sans font-normal text-sm text-black">Percentage of Chats Replied</h3>
-                            <h3 class="font-sans font-medium text-sm text-blue-900">95%</h3>
-                        </div>
-                        <div class="flex w-52 justify-between items-start">
-                            <h3 class="font-sans font-normal text-sm text-black">Join</h3>
-                            <h3 class="font-sans font-medium text-sm text-blue-900">2 years ago</h3>
-                        </div>
-                    </div>
-                    <div class="flex items-start justify-between self-stretch gap-20">
-                        <div class="flex w-32 justify-between items-start">
-                            <h3 class="font-sans font-normal text-sm text-black">Product</h3>
-                            <h3 class="font-sans font-medium text-sm text-blue-900">15</h3>
-                        </div>
-                        <div class="flex w-72 justify-between items-start">
-                            <h3 class="font-sans font-normal text-sm text-black">Chat Time to Reply</h3>
-                            <h3 class="font-sans font-medium text-sm text-blue-900">a matter of hours</h3>
-                        </div>
-                        <div class="flex w-52 justify-between items-start">
-                            <h3 class="font-sans font-normal text-sm text-black">Followers</h3>
-                            <h3 class="font-sans font-medium text-sm text-blue-900">2 K</h3>
-                        </div>
-                    </div>
-                </div>
-            </div> --}}
             <div class="flex gap-6">
                 <div class="flex w-fit py-8 px-6 items-start gap-7 rounded-lg bg-white">
                     <div class="flex flex-col items-start gap-3">
@@ -428,90 +373,26 @@
                 <div class="flex flex-col w-full gap-6 p-6 bg-white rounded-lg">
                     <h3 class="font-sans text-xl font-bold">Featured Product</h3>
                     <div class="w-full grid grid-cols-2 gap-4">
-                        <div class="bg-white w-full flex flex-col p-2 shadow-md rounded">
-                            <h2 class="font-sans text-xl font-bold">Mobil 1</h2>
-                            <h3 class="font-sans text-sm">Sedan</h3>
-                            <img src="{{ asset('assets/item-product.png') }}" alt="" class="w-full h-auto my-2">
-                            <div class="flex justify-between items-center">
-                                <h3 class="font-sans text-xs font-medium">Rp. 500.000/day</h3>
-                                <button class="flex py-1 px-2 justify-center items-center gap-1 text-xs rounded bg-blue-600 text-white">
-                                    Rent
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="12" viewBox="0 0 13 12" fill="none">
-                                        <path d="M10.9111 6.11652L7.6174 9.41019C7.54873 9.47886 7.45559 9.51744 7.35848 9.51744C7.26137 9.51744 7.16823 9.47886 7.09956 9.41019C7.03089 9.34152 6.99231 9.24838 6.99231 9.15127C6.99231 9.05416 7.03089 8.96102 7.09956 8.89235L9.76881 6.22356H2.60095C2.50389 6.22356 2.41081 6.185 2.34217 6.11637C2.27354 6.04774 2.23499 5.95466 2.23499 5.8576C2.23499 5.76054 2.27354 5.66745 2.34217 5.59882C2.41081 5.53019 2.50389 5.49163 2.60095 5.49163H9.76881L7.09956 2.82284C7.03089 2.75417 6.99231 2.66103 6.99231 2.56392C6.99231 2.46681 7.03089 2.37367 7.09956 2.305C7.16823 2.23633 7.26137 2.19775 7.35848 2.19775C7.45559 2.19775 7.54873 2.23633 7.6174 2.305L10.9111 5.59868C10.9451 5.63266 10.9721 5.67303 10.9905 5.71745C11.0089 5.76188 11.0184 5.8095 11.0184 5.8576C11.0184 5.90569 11.0089 5.95331 10.9905 5.99774C10.9721 6.04217 10.9451 6.08253 10.9111 6.11652Z" fill="white"/>
-                                    </svg>
-                                </button>
+                        @foreach ( $vehicles as $vehicle )
+                            <div class="bg-white w-full flex flex-col p-2 shadow-md rounded">
+                                <h2 class="font-sans text-xl font-bold">{{ $vehicle->name }}</h2>
+                                @foreach ( $categories as $category )
+                                    @if ( $vehicle->category_id == $category->id )
+                                        <h3 class="font-sans text-sm">{{ $category->name }}</h3>    
+                                    @endif
+                                @endforeach
+                                <img src="{{ asset('assets/product-detail-'.$vehicle->id.'-1.jpg') }}" alt="product" class="w-full h-auto object-cover my-4" style="width : 139px height: 86px;">
+                                <div class="flex justify-between items-center">
+                                    <h3 class="font-sans text-xs font-medium">Rp {{ number_format($vehicle->price, 0, ',', '.') }}/day</h3>
+                                    <button class="flex py-1 px-2 justify-center items-center gap-1 text-xs rounded bg-blue-600 text-white">
+                                        Rent
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="12" viewBox="0 0 13 12" fill="none">
+                                            <path d="M10.9111 6.11652L7.6174 9.41019C7.54873 9.47886 7.45559 9.51744 7.35848 9.51744C7.26137 9.51744 7.16823 9.47886 7.09956 9.41019C7.03089 9.34152 6.99231 9.24838 6.99231 9.15127C6.99231 9.05416 7.03089 8.96102 7.09956 8.89235L9.76881 6.22356H2.60095C2.50389 6.22356 2.41081 6.185 2.34217 6.11637C2.27354 6.04774 2.23499 5.95466 2.23499 5.8576C2.23499 5.76054 2.27354 5.66745 2.34217 5.59882C2.41081 5.53019 2.50389 5.49163 2.60095 5.49163H9.76881L7.09956 2.82284C7.03089 2.75417 6.99231 2.66103 6.99231 2.56392C6.99231 2.46681 7.03089 2.37367 7.09956 2.305C7.16823 2.23633 7.26137 2.19775 7.35848 2.19775C7.45559 2.19775 7.54873 2.23633 7.6174 2.305L10.9111 5.59868C10.9451 5.63266 10.9721 5.67303 10.9905 5.71745C11.0089 5.76188 11.0184 5.8095 11.0184 5.8576C11.0184 5.90569 11.0089 5.95331 10.9905 5.99774C10.9721 6.04217 10.9451 6.08253 10.9111 6.11652Z" fill="white"/>
+                                        </svg>
+                                    </button>
+                                </div>
                             </div>
-                        </div>
-                        <div class="bg-white w-full flex flex-col p-2 shadow-md rounded">
-                            <h2 class="font-sans text-xl font-bold">Mobil 1</h2>
-                            <h3 class="font-sans text-sm">Sedan</h3>
-                            <img src="{{ asset('assets/item-product.png') }}" alt="" class="w-full h-auto my-2">
-                            <div class="flex justify-between items-center">
-                                <h3 class="font-sans text-xs font-medium">Rp. 500.000/day</h3>
-                                <button class="flex py-1 px-2 justify-center items-center gap-1 text-xs rounded bg-blue-600 text-white">
-                                    Rent
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="12" viewBox="0 0 13 12" fill="none">
-                                        <path d="M10.9111 6.11652L7.6174 9.41019C7.54873 9.47886 7.45559 9.51744 7.35848 9.51744C7.26137 9.51744 7.16823 9.47886 7.09956 9.41019C7.03089 9.34152 6.99231 9.24838 6.99231 9.15127C6.99231 9.05416 7.03089 8.96102 7.09956 8.89235L9.76881 6.22356H2.60095C2.50389 6.22356 2.41081 6.185 2.34217 6.11637C2.27354 6.04774 2.23499 5.95466 2.23499 5.8576C2.23499 5.76054 2.27354 5.66745 2.34217 5.59882C2.41081 5.53019 2.50389 5.49163 2.60095 5.49163H9.76881L7.09956 2.82284C7.03089 2.75417 6.99231 2.66103 6.99231 2.56392C6.99231 2.46681 7.03089 2.37367 7.09956 2.305C7.16823 2.23633 7.26137 2.19775 7.35848 2.19775C7.45559 2.19775 7.54873 2.23633 7.6174 2.305L10.9111 5.59868C10.9451 5.63266 10.9721 5.67303 10.9905 5.71745C11.0089 5.76188 11.0184 5.8095 11.0184 5.8576C11.0184 5.90569 11.0089 5.95331 10.9905 5.99774C10.9721 6.04217 10.9451 6.08253 10.9111 6.11652Z" fill="white"/>
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="bg-white w-full flex flex-col p-2 shadow-md rounded">
-                            <h2 class="font-sans text-xl font-bold">Mobil 1</h2>
-                            <h3 class="font-sans text-sm">Sedan</h3>
-                            <img src="{{ asset('assets/item-product.png') }}" alt="" class="w-full h-auto my-2">
-                            <div class="flex justify-between items-center">
-                                <h3 class="font-sans text-xs font-medium">Rp. 500.000/day</h3>
-                                <button class="flex py-1 px-2 justify-center items-center gap-1 text-xs rounded bg-blue-600 text-white">
-                                    Rent
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="12" viewBox="0 0 13 12" fill="none">
-                                        <path d="M10.9111 6.11652L7.6174 9.41019C7.54873 9.47886 7.45559 9.51744 7.35848 9.51744C7.26137 9.51744 7.16823 9.47886 7.09956 9.41019C7.03089 9.34152 6.99231 9.24838 6.99231 9.15127C6.99231 9.05416 7.03089 8.96102 7.09956 8.89235L9.76881 6.22356H2.60095C2.50389 6.22356 2.41081 6.185 2.34217 6.11637C2.27354 6.04774 2.23499 5.95466 2.23499 5.8576C2.23499 5.76054 2.27354 5.66745 2.34217 5.59882C2.41081 5.53019 2.50389 5.49163 2.60095 5.49163H9.76881L7.09956 2.82284C7.03089 2.75417 6.99231 2.66103 6.99231 2.56392C6.99231 2.46681 7.03089 2.37367 7.09956 2.305C7.16823 2.23633 7.26137 2.19775 7.35848 2.19775C7.45559 2.19775 7.54873 2.23633 7.6174 2.305L10.9111 5.59868C10.9451 5.63266 10.9721 5.67303 10.9905 5.71745C11.0089 5.76188 11.0184 5.8095 11.0184 5.8576C11.0184 5.90569 11.0089 5.95331 10.9905 5.99774C10.9721 6.04217 10.9451 6.08253 10.9111 6.11652Z" fill="white"/>
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="bg-white w-full flex flex-col p-2 shadow-md rounded">
-                            <h2 class="font-sans text-xl font-bold">Mobil 1</h2>
-                            <h3 class="font-sans text-sm">Sedan</h3>
-                            <img src="{{ asset('assets/item-product.png') }}" alt="" class="w-full h-auto my-2">
-                            <div class="flex justify-between items-center">
-                                <h3 class="font-sans text-xs font-medium">Rp. 500.000/day</h3>
-                                <button class="flex py-1 px-2 justify-center items-center gap-1 text-xs rounded bg-blue-600 text-white">
-                                    Rent
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="12" viewBox="0 0 13 12" fill="none">
-                                        <path d="M10.9111 6.11652L7.6174 9.41019C7.54873 9.47886 7.45559 9.51744 7.35848 9.51744C7.26137 9.51744 7.16823 9.47886 7.09956 9.41019C7.03089 9.34152 6.99231 9.24838 6.99231 9.15127C6.99231 9.05416 7.03089 8.96102 7.09956 8.89235L9.76881 6.22356H2.60095C2.50389 6.22356 2.41081 6.185 2.34217 6.11637C2.27354 6.04774 2.23499 5.95466 2.23499 5.8576C2.23499 5.76054 2.27354 5.66745 2.34217 5.59882C2.41081 5.53019 2.50389 5.49163 2.60095 5.49163H9.76881L7.09956 2.82284C7.03089 2.75417 6.99231 2.66103 6.99231 2.56392C6.99231 2.46681 7.03089 2.37367 7.09956 2.305C7.16823 2.23633 7.26137 2.19775 7.35848 2.19775C7.45559 2.19775 7.54873 2.23633 7.6174 2.305L10.9111 5.59868C10.9451 5.63266 10.9721 5.67303 10.9905 5.71745C11.0089 5.76188 11.0184 5.8095 11.0184 5.8576C11.0184 5.90569 11.0089 5.95331 10.9905 5.99774C10.9721 6.04217 10.9451 6.08253 10.9111 6.11652Z" fill="white"/>
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="bg-white w-full flex flex-col p-2 shadow-md rounded">
-                            <h2 class="font-sans text-xl font-bold">Mobil 1</h2>
-                            <h3 class="font-sans text-sm">Sedan</h3>
-                            <img src="{{ asset('assets/item-product.png') }}" alt="" class="w-full h-auto my-2">
-                            <div class="flex justify-between items-center">
-                                <h3 class="font-sans text-xs font-medium">Rp. 500.000/day</h3>
-                                <button class="flex py-1 px-2 justify-center items-center gap-1 text-xs rounded bg-blue-600 text-white">
-                                    Rent
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="12" viewBox="0 0 13 12" fill="none">
-                                        <path d="M10.9111 6.11652L7.6174 9.41019C7.54873 9.47886 7.45559 9.51744 7.35848 9.51744C7.26137 9.51744 7.16823 9.47886 7.09956 9.41019C7.03089 9.34152 6.99231 9.24838 6.99231 9.15127C6.99231 9.05416 7.03089 8.96102 7.09956 8.89235L9.76881 6.22356H2.60095C2.50389 6.22356 2.41081 6.185 2.34217 6.11637C2.27354 6.04774 2.23499 5.95466 2.23499 5.8576C2.23499 5.76054 2.27354 5.66745 2.34217 5.59882C2.41081 5.53019 2.50389 5.49163 2.60095 5.49163H9.76881L7.09956 2.82284C7.03089 2.75417 6.99231 2.66103 6.99231 2.56392C6.99231 2.46681 7.03089 2.37367 7.09956 2.305C7.16823 2.23633 7.26137 2.19775 7.35848 2.19775C7.45559 2.19775 7.54873 2.23633 7.6174 2.305L10.9111 5.59868C10.9451 5.63266 10.9721 5.67303 10.9905 5.71745C11.0089 5.76188 11.0184 5.8095 11.0184 5.8576C11.0184 5.90569 11.0089 5.95331 10.9905 5.99774C10.9721 6.04217 10.9451 6.08253 10.9111 6.11652Z" fill="white"/>
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="bg-white w-full flex flex-col p-2 shadow-md rounded">
-                            <h2 class="font-sans text-xl font-bold">Mobil 1</h2>
-                            <h3 class="font-sans text-sm">Sedan</h3>
-                            <img src="{{ asset('assets/item-product.png') }}" alt="" class="w-full h-auto my-2">
-                            <div class="flex justify-between items-center">
-                                <h3 class="font-sans text-xs font-medium">Rp. 500.000/day</h3>
-                                <button class="flex py-1 px-2 justify-center items-center gap-1 text-xs rounded bg-blue-600 text-white">
-                                    Rent
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="12" viewBox="0 0 13 12" fill="none">
-                                        <path d="M10.9111 6.11652L7.6174 9.41019C7.54873 9.47886 7.45559 9.51744 7.35848 9.51744C7.26137 9.51744 7.16823 9.47886 7.09956 9.41019C7.03089 9.34152 6.99231 9.24838 6.99231 9.15127C6.99231 9.05416 7.03089 8.96102 7.09956 8.89235L9.76881 6.22356H2.60095C2.50389 6.22356 2.41081 6.185 2.34217 6.11637C2.27354 6.04774 2.23499 5.95466 2.23499 5.8576C2.23499 5.76054 2.27354 5.66745 2.34217 5.59882C2.41081 5.53019 2.50389 5.49163 2.60095 5.49163H9.76881L7.09956 2.82284C7.03089 2.75417 6.99231 2.66103 6.99231 2.56392C6.99231 2.46681 7.03089 2.37367 7.09956 2.305C7.16823 2.23633 7.26137 2.19775 7.35848 2.19775C7.45559 2.19775 7.54873 2.23633 7.6174 2.305L10.9111 5.59868C10.9451 5.63266 10.9721 5.67303 10.9905 5.71745C11.0089 5.76188 11.0184 5.8095 11.0184 5.8576C11.0184 5.90569 11.0089 5.95331 10.9905 5.99774C10.9721 6.04217 10.9451 6.08253 10.9111 6.11652Z" fill="white"/>
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
