@@ -5,7 +5,7 @@
 <div class="flex justify-center" id="container">
     <div class="mr-12">
         {{-- Transaction Info --}}
-        <form action="{{ route('save.transaction') }}" method="POST">
+        <form action="/transaction" method="POST">
             @csrf
             <div class="flex flex-col justify-center items-center" id="Transaction-info">
                 <div class="bg-white rounded shadow p-6 m-4">
@@ -120,7 +120,7 @@
                     </div>
                 </div>
             </div>
-            <button class="flex bg-indigo-600 hover:bg-indigo-700 text-white font-bold ml-4 mt-2 mb-8 py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+            <button type="submit" class="flex bg-indigo-600 hover:bg-indigo-700 text-white font-bold ml-4 mt-2 mb-8 py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
                 Pay Now
                 <div class="ml-2">
                     <img src="../assets/ArrowRight.svg" alt="">

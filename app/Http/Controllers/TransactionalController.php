@@ -77,36 +77,31 @@ class TransactionalController extends Controller
         }
     }
 
-    public function store(Request $request)
-    {
-        $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
-            'phone_number' => 'required|string|max:15',
-            'address' => 'required|string|max:255',
-            'city' => 'required|string|max:100',
-            'pick_up_date' => 'required|date',
-            'pick_up_location' => 'required|string|max:255',
-            'pick_up_time' => 'required',
-            'drop_off_date' => 'required|date',
-            'drop_off_location' => 'required|string|max:255',
-            'drop_off_time' => 'required',
-            'payment_method' => 'required|string|max:255'
+    public function transaction(StoreTransactionalRequest $request)
+    {   
+        dd($request);
+        $validatedData = $request->validated();
+        dd($validatedData);
+        $transaction = new Transactional([
+            'tenant_id' => $validatedData['tenant_id'],
+            'vehicle_id' => $validatedData['vehicle_id'],
+            'name' => $validatedData['name'],
+            'phone_number' => $validatedData['phone_number'],
+            'address' => $validatedData['address'],
+            'city' => $validatedData['city'],
+            'email' => $validatedData['email'],
+            'pick_up_date' => $validatedData['pick_up_date'],
+            'pick_up_location' => $validatedData['pick_up_location'],
+            'pick_up_time' => $validatedData['pick_up_time'],
+            'drop_off_date' => $validatedData['drop_off_date'],
+            'drop_off_location' => $validatedData['drop_off_location'],
+            'drop_off_time' => $validatedData['drop_off_time'],
+            'total_payment' => $validatedData['total_payment'], // total_payment = rent_period * vehicle_price
+            'payment_status' => "PROCESS",
+            'payment_method' => $validatedData['payment_method']
         ]);
 
-        $transaction = new Transactional();
-        $transaction->name = $validatedData['name'];
-        $transaction->phone_number = $validatedData['phone_number'];
-        $transaction->address = $validatedData['address'];
-        $transaction->city = $validatedData['city'];
-        $transaction->pick_up_date = $validatedData['pick_up_date'];
-        $transaction->pick_up_location = $validatedData['pick_up_location'];
-        $transaction->pick_up_time = $validatedData['pick_up_time'];
-        $transaction->drop_off_date = $validatedData['drop_off_date'];
-        $transaction->drop_off_location = $validatedData['drop_off_location'];
-        $transaction->drop_off_time = $validatedData['drop_off_time'];
-        $transaction->payment_method = $validatedData['payment_method'];
-
-        $transaction->save();
+        // $transaction->save();
 
         return redirect()->route('home')->with('success', 'Transaction saved successfully!');
     }

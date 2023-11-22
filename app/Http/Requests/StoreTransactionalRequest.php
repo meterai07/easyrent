@@ -22,10 +22,21 @@ class StoreTransactionalRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'tenant_id' => ['required', 'numeric'],
             'vehicle_id' => ['required', 'numeric'],
-            'rent_date' => ['required', 'date'],
-            'rent_period' => ['required', 'numeric'],
             'total_payment' => ['required', 'numeric'],
+            'name' => 'required|string|max:255',
+            'phone_number' => 'required|string|max:15',
+            'address' => 'required|string|max:255',
+            'city' => 'required|string|max:100',
+            'email' => 'required|string|email|max:255',
+            'pick_up_date' => 'required|date',
+            'pick_up_location' => 'required|string|max:255',
+            'pick_up_time' => 'required',
+            'drop_off_date' => 'required|date',
+            'drop_off_location' => 'required|string|max:255',
+            'drop_off_time' => 'required',
+            'payment_method' => 'required|string|max:255'
         ];
     }
 }
