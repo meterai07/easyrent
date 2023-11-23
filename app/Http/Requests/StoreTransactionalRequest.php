@@ -29,7 +29,6 @@ class StoreTransactionalRequest extends FormRequest
             'phone_number' => 'required|string|max:15',
             'address' => 'required|string|max:255',
             'city' => 'required|string|max:100',
-            'email' => 'required|string|email|max:255',
             'pick_up_date' => 'required|date',
             'pick_up_location' => 'required|string|max:255',
             'pick_up_time' => 'required',

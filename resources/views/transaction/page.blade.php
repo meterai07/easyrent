@@ -5,7 +5,7 @@
 <div class="flex justify-center" id="container">
     <div class="mr-12">
         {{-- Transaction Info --}}
-        <form action="/transaction" method="POST">
+        <form action="/product/transaction" method="post">
             @csrf
             <div class="flex flex-col justify-center items-center" id="Transaction-info">
                 <div class="bg-white rounded shadow p-6 m-4">
@@ -83,35 +83,35 @@
                         <div class="flex flex-col my-6">
                             <div class="flex flex-row items-center mb-3">
                                 <label for="bca" class="w-full flex items-center cursor-pointer">
-                                    <input type="radio" name="payment_method" id="bca" class="form-radio h-4 w-4 text-indigo-600 transition duration-150 ease-in-out mr-2" required>
+                                    <input type="radio" name="payment_method" value="BCA" id="bca" class="form-radio h-4 w-4 text-indigo-600 transition duration-150 ease-in-out mr-2" required>
                                     <span class="text-sm leading-5 font-medium text-gray-700">BCA</span>
                                     <img src="../assets/bca-logo.png" alt="BCA Logo" class="ml-auto h-6 w-auto">
                                 </label>
                             </div>
                             <div class="flex flex-row mb-3">
                                 <label for="bni" class="w-full flex items-center cursor-pointer">
-                                    <input type="radio" name="payment_method" id="bni" class="form-radio h-4 w-4 text-indigo-600 transition duration-150 ease-in-out mr-2" required>
+                                    <input type="radio" name="payment_method" value="BNI" id="bni" class="form-radio h-4 w-4 text-indigo-600 transition duration-150 ease-in-out mr-2" required>
                                     <span class="text-sm leading-5 font-medium text-gray-700">BNI</span>
                                     <img src="../assets/bni-logo.png" alt="BNI Logo" class="ml-auto h-6 w-auto">
                                 </label>
                             </div>
                             <div class="flex flex-row mb-3">
                                 <label for="bri" class="w-full flex items-center cursor-pointer">
-                                    <input type="radio" name="payment_method" id="bri" class="form-radio h-4 w-4 text-indigo-600 transition duration-150 ease-in-out mr-2" required>
+                                    <input type="radio" name="payment_method" value="BRI" id="bri" class="form-radio h-4 w-4 text-indigo-600 transition duration-150 ease-in-out mr-2" required>
                                     <span class="text-sm leading-5 font-medium text-gray-700">BRI</span>
                                     <img src="../assets/bri-logo.png" alt="BRI Logo" class="ml-auto h-6 w-auto">
                                 </label>
                             </div>
                             <div class="flex flex-row mb-3">
                                 <label for="bsi" class="w-full flex items-center cursor-pointer">
-                                    <input type="radio" name="payment_method" id="bsi" class="form-radio h-4 w-4 text-indigo-600 transition duration-150 ease-in-out mr-2" required>
+                                    <input type="radio" name="payment_method" value="BSI" id="bsi" class="form-radio h-4 w-4 text-indigo-600 transition duration-150 ease-in-out mr-2" required>
                                     <span class="text-sm leading-5 font-medium text-gray-700">BSI</span>
                                     <img src="../assets/bsi-logo.png" alt="BSI Logo" class="ml-auto h-6 w-auto">
                                 </label>
                             </div>
                             <div class="flex flex-row">
                                 <label for="mandiri" class="w-full flex items-center cursor-pointer">
-                                    <input type="radio" name="payment_method" id="mandiri" class="form-radio h-4 w-4 text-indigo-600 transition duration-150 ease-in-out mr-2" required>
+                                    <input type="radio" name="payment_method" value="MANDIRI" id="mandiri" class="form-radio h-4 w-4 text-indigo-600 transition duration-150 ease-in-out mr-2" required>
                                     <span class="text-sm leading-5 font-medium text-gray-700">Mandiri</span>
                                     <img src="../assets/mandiri-logo.png" alt="Mandiri Logo" class="ml-auto h-6 w-auto">
                                 </label>
@@ -120,6 +120,9 @@
                     </div>
                 </div>
             </div>
+            <input type="hidden" name="tenant_id" value="{{ auth()->user()->id }}">
+            <input type="hidden" name="vehicle_id" value="{{ $vehicles->id }}">
+            <input type="hidden" name="total_payment" value="{{ $vehicles->price*101/100 }}">
             <button type="submit" class="flex bg-indigo-600 hover:bg-indigo-700 text-white font-bold ml-4 mt-2 mb-8 py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
                 Pay Now
                 <div class="ml-2">

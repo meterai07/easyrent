@@ -32,10 +32,11 @@ Route::post('/login', [UserController::class, 'login'])->name('login');
 Route::get('/logout', [UserController::class, 'logout'])->middleware('auth');
 Route::post('/register', [UserController::class, 'register'])->name('register');
 
-Route::get('/product', [VehicleController::class, 'index']);
-Route::get('/product/{id}', [VehicleController::class, 'show']);
+Route::prefix('product')->group(function () {
+    Route::get('/', [VehicleController::class, 'index'])->name('product');
+    Route::get('/{id}', [VehicleController::class, 'show']);
+    Route::get('/{id}/transaction', [TransactionalController::class, 'show'])->middleware('auth');
+    Route::post('/transaction', [TransactionalController::class, 'transaction'])->middleware('auth');
+});
 
-Route::get('/product/{id}/transaction', [TransactionalController::class, 'show']);
-Route::post('/transaction', [TransactionalController::class, 'transaction'])->middleware('auth');
-
-Route::post('/save-transaction', [TransactionalController::class, 'store'])->name('save.transaction');
+// Route::post('/save-transaction', [TransactionalController::class, 'store'])->name('save.transaction');

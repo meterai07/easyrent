@@ -372,7 +372,7 @@
                 </div>
                 <div class="flex flex-col w-full gap-6 p-6 bg-white rounded-lg">
                     <h3 class="font-sans text-xl font-bold">Featured Product</h3>
-                    <div class="w-full grid grid-cols-2 gap-4">
+                    <div class="grid grid-cols-2 gap-4">
                         @foreach ( $vehicles as $vehicle )
                             <div class="bg-white w-full flex flex-col p-2 shadow-md rounded">
                                 <h2 class="font-sans text-xl font-bold">{{ $vehicle->name }}</h2>
@@ -381,15 +381,17 @@
                                         <h3 class="font-sans text-sm">{{ $category->name }}</h3>    
                                     @endif
                                 @endforeach
-                                <img src="{{ asset('assets/product-detail-'.$vehicle->id.'-1.jpg') }}" alt="product" class="w-full h-auto object-cover my-4" style="width : 139px height: 86px;">
+                                <img src="{{ asset('assets/product-detail-'.$vehicle->id.'-1.jpg') }}" alt="product" class="w-full h-auto object-cover my-4" style="height: 142px;">
                                 <div class="flex justify-between items-center">
                                     <h3 class="font-sans text-xs font-medium">Rp {{ number_format($vehicle->price, 0, ',', '.') }}/day</h3>
-                                    <button class="flex py-1 px-2 justify-center items-center gap-1 text-xs rounded bg-blue-600 text-white">
-                                        Rent
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="12" viewBox="0 0 13 12" fill="none">
-                                            <path d="M10.9111 6.11652L7.6174 9.41019C7.54873 9.47886 7.45559 9.51744 7.35848 9.51744C7.26137 9.51744 7.16823 9.47886 7.09956 9.41019C7.03089 9.34152 6.99231 9.24838 6.99231 9.15127C6.99231 9.05416 7.03089 8.96102 7.09956 8.89235L9.76881 6.22356H2.60095C2.50389 6.22356 2.41081 6.185 2.34217 6.11637C2.27354 6.04774 2.23499 5.95466 2.23499 5.8576C2.23499 5.76054 2.27354 5.66745 2.34217 5.59882C2.41081 5.53019 2.50389 5.49163 2.60095 5.49163H9.76881L7.09956 2.82284C7.03089 2.75417 6.99231 2.66103 6.99231 2.56392C6.99231 2.46681 7.03089 2.37367 7.09956 2.305C7.16823 2.23633 7.26137 2.19775 7.35848 2.19775C7.45559 2.19775 7.54873 2.23633 7.6174 2.305L10.9111 5.59868C10.9451 5.63266 10.9721 5.67303 10.9905 5.71745C11.0089 5.76188 11.0184 5.8095 11.0184 5.8576C11.0184 5.90569 11.0089 5.95331 10.9905 5.99774C10.9721 6.04217 10.9451 6.08253 10.9111 6.11652Z" fill="white"/>
-                                        </svg>
-                                    </button>
+                                    <a href="/product/{{ $vehicle->id }}">
+                                        <button class="flex py-1 px-2 justify-center items-center gap-1 text-xs rounded bg-blue-600 text-white">
+                                            Rent
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="12" viewBox="0 0 13 12" fill="none">
+                                                <path d="M10.9111 6.11652L7.6174 9.41019C7.54873 9.47886 7.45559 9.51744 7.35848 9.51744C7.26137 9.51744 7.16823 9.47886 7.09956 9.41019C7.03089 9.34152 6.99231 9.24838 6.99231 9.15127C6.99231 9.05416 7.03089 8.96102 7.09956 8.89235L9.76881 6.22356H2.60095C2.50389 6.22356 2.41081 6.185 2.34217 6.11637C2.27354 6.04774 2.23499 5.95466 2.23499 5.8576C2.23499 5.76054 2.27354 5.66745 2.34217 5.59882C2.41081 5.53019 2.50389 5.49163 2.60095 5.49163H9.76881L7.09956 2.82284C7.03089 2.75417 6.99231 2.66103 6.99231 2.56392C6.99231 2.46681 7.03089 2.37367 7.09956 2.305C7.16823 2.23633 7.26137 2.19775 7.35848 2.19775C7.45559 2.19775 7.54873 2.23633 7.6174 2.305L10.9111 5.59868C10.9451 5.63266 10.9721 5.67303 10.9905 5.71745C11.0089 5.76188 11.0184 5.8095 11.0184 5.8576C11.0184 5.90569 11.0089 5.95331 10.9905 5.99774C10.9721 6.04217 10.9451 6.08253 10.9111 6.11652Z" fill="white"/>
+                                            </svg>
+                                        </button>
+                                    </a>
                                 </div>
                             </div>
                         @endforeach

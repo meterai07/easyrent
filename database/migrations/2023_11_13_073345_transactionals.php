@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('phone_number');
             $table->string('address');
             $table->string('city');
-            $table->string('email');
             $table->date('pick_up_date')->date_format('Y-m-d');
             $table->string('pick_up_location');
             $table->time('pick_up_time')->time_format('H:i');
