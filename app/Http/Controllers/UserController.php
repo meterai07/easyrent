@@ -23,7 +23,10 @@ class UserController extends Controller
     {
         $user = Auth::user();
         $tenant = Tenant::where('user_id', $user->id)->first();
-        $transaction = Transactional::where('tenant_id', $tenant->id)->get();
+        $transaction = Transactional::where('tenant_id', $tenant->id)
+            ->join('vehicles', 'transactionals.vehicle_id', '=', 'vehicles.id')
+            ->select('transactionals.*', 'vehicles.name as vehicle_name')
+            ->get();
 
         return view('user.profile.page', [
             'user' => Auth::user(),

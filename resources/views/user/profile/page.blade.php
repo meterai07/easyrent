@@ -54,20 +54,20 @@
                             @foreach ($transaction as $tr)
                                 <tr class="text-center">
                                     <td>
-                                        <p class="py-1 px-3 bg-gray-300 text-gray-600 rounded-full w-fit mx-auto">{{$tr->Booking_no}}</p>
+                                        <p class="py-1 px-3 bg-gray-300 text-gray-600 rounded-full w-fit mx-auto">{{str_pad($tr->id, 3, '0', STR_PAD_LEFT)}}</p>
                                     </td>
-                                    <td>Toyota Avanza</td>
+                                    <td>{{$tr -> vehicle_name}}</td>
                                     <td>{{$tr -> pick_up_location}}</td>
                                     <td>{{$tr -> pick_up_date}}</td>
                                     <td>{{$tr -> drop_off_date}}</td>
                                     <td>{{$tr -> total_payment}}</td>
                                     <td>
-                                        @if($tr->payment_status == "Booked")
-                                            <p class="py-1 px-3 bg-yellow-300 text-yellow-700 rounded-full w-fit mx-auto">{{$tr->payment_status}}</p>
-                                        @elseif($tr->payment_status == "Completed")
-                                            <p class="py-1 px-3 bg-green-300 text-green-700 rounded-full w-fit mx-auto">{{$tr->payment_status}}</p>
+                                        @if($tr->payment_status == "PROCESS")
+                                            <p class="py-1 px-3 bg-yellow-300 text-yellow-700 rounded-full w-fit mx-auto">Booked</p>
+                                        @elseif($tr->payment_status == "SUCCESS")
+                                            <p class="py-1 px-3 bg-green-300 text-green-700 rounded-full w-fit mx-auto">Completed</p>
                                         @else
-                                            <p class="py-1 px-3 bg-red-300 text-red-700 rounded-full w-fit mx-auto">{{$tr->payment_status}}</p>
+                                            <p class="py-1 px-3 bg-red-300 text-red-700 rounded-full w-fit mx-auto">Canceled</p>
                                         @endif
                                         
                                     </td>
