@@ -6,9 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Halaman Pembayaran</title>
     <script type="text/javascript"
-    src="https://app.sandbox.midtrans.com/snap/snap.js"
+    src="{{ config('midtrans.snap_url') }}"
     data-client-key="{{ config('midtrans.client_key') }}"></script>
-    {{-- <script type="text/javascript" src="https://app.stg.midtrans.com/snap/snap.js" data-client-key=""></script> --}}
 </head>
 <body>
     <table>

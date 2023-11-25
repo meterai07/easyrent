@@ -17,13 +17,6 @@ use App\Http\Controllers\TransactionalController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-Route::get("page", function () {
-    return view("page");
-});
 
 Route::get("/", [VehicleController::class, 'index']);
 
