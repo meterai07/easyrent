@@ -12,7 +12,7 @@ class Transactional extends Model
     protected $fillable = [
         'tenant_id',
         'vehicle_id',
-        'name',
+        'Booking_no',
         'phone_number',
         'address',
         'city',

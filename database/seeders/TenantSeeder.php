@@ -16,5 +16,8 @@ class TenantSeeder extends Seeder
         Tenant::create([
             "user_id"=> 2,
         ]);
+        Tenant::create([
+            "user_id"=> 3,
+        ]);
     }
 }

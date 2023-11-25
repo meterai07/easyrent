@@ -12,7 +12,7 @@
                     <img src="/assets/hanif.jpeg" alt="" class="w-52 h-52 object-cover rounded-full mx-auto">
                     <div class="mx-auto flex flex-col gap-1">
                         <h1 class="text-2xl font-bold text-center">{{ $user->name }}</h1>
-                        <h2 class="text-base text-gray-800 text-center">muhammadbdjafar@gmail.com</h2>
+                        <h2 class="text-base text-gray-800 text-center">{{$user->email}}</h2>
                     </div>
                     <hr class="border border-gray-300">
                     <div class="flex flex-col">
@@ -51,45 +51,28 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="text-center">
-                                <td>
-                                    <p class="py-1 px-3 bg-gray-300 text-gray-600 rounded-full w-fit mx-auto">0001</p>
-                                </td>
-                                <td>Toyota Avanza</td>
-                                <td>MT Haryono, Malang</td>
-                                <td>6/11/2023</td>
-                                <td>12/11/2023</td>
-                                <td>Rp. 5.000.000</td>
-                                <td>
-                                    <p class="py-1 px-3 bg-yellow-300 text-yellow-700 rounded-full w-fit mx-auto">Booked</p>
-                                </td>
-                            </tr>
-                            <tr class="text-center">
-                                <td>
-                                    <p class="py-1 px-3 bg-gray-300 text-gray-600 rounded-full w-fit mx-auto">0002</p>
-                                </td>
-                                <td>Toyota Avanza</td>
-                                <td>MT Haryono, Malang</td>
-                                <td>6/11/2023</td>
-                                <td>12/11/2023</td>
-                                <td>Rp. 5.000.000</td>
-                                <td>
-                                    <p class="py-1 px-3 bg-green-400 text-green-800 rounded-full w-fit mx-auto">Completed</p>
-                                </td>
-                            </tr>
-                            <tr class="text-center">
-                                <td>
-                                    <p class="py-1 px-3 bg-gray-300 text-gray-600 rounded-full w-fit mx-auto">0003</p>
-                                </td>
-                                <td>Toyota Avanza</td>
-                                <td>MT Haryono, Malang</td>
-                                <td>6/11/2023</td>
-                                <td>12/11/2023</td>
-                                <td>Rp. 5.000.000</td>
-                                <td>
-                                    <p class="py-1 px-3 bg-red-400 text-red-800 rounded-full w-fit mx-auto">Canceled</p>
-                                </td>
-                            </tr>
+                            @foreach ($transaction as $tr)
+                                <tr class="text-center">
+                                    <td>
+                                        <p class="py-1 px-3 bg-gray-300 text-gray-600 rounded-full w-fit mx-auto">{{$tr->Booking_no}}</p>
+                                    </td>
+                                    <td>Toyota Avanza</td>
+                                    <td>{{$tr -> pick_up_location}}</td>
+                                    <td>{{$tr -> pick_up_date}}</td>
+                                    <td>{{$tr -> drop_off_date}}</td>
+                                    <td>{{$tr -> total_payment}}</td>
+                                    <td>
+                                        @if($tr->payment_status == "Booked")
+                                            <p class="py-1 px-3 bg-yellow-300 text-yellow-700 rounded-full w-fit mx-auto">{{$tr->payment_status}}</p>
+                                        @elseif($tr->payment_status == "Completed")
+                                            <p class="py-1 px-3 bg-green-300 text-green-700 rounded-full w-fit mx-auto">{{$tr->payment_status}}</p>
+                                        @else
+                                            <p class="py-1 px-3 bg-red-300 text-red-700 rounded-full w-fit mx-auto">{{$tr->payment_status}}</p>
+                                        @endif
+                                        
+                                    </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

@@ -23,7 +23,7 @@ class UserController extends Controller
     {
         $user = Auth::user();
         $tenant = Tenant::where('user_id', $user->id)->first();
-        $transaction = Transactional::where('tenant_id', $user->id)->first();
+        $transaction = Transactional::where('tenant_id', $tenant->id)->get();
 
         return view('user.profile.page', [
             'user' => Auth::user(),
@@ -38,6 +38,7 @@ class UserController extends Controller
         $validated['password'] = Hash::make($validated['password']);
 
         $user = User::create($validated);
+        $tenant = Tenant::create(["user_id"=> $user->id]);
 
         Auth::login($user);
 

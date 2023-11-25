@@ -34,5 +34,15 @@ class UserSeeder extends Seeder
             'isVerified' => true,
             'user_type' => 'TENANT',
         ]);
+
+        User::create([
+            'NIK' => '123123123123123',
+            'name' => 'Muhammad Rizqon Maulana',
+            'email' => 'muhammadrizqonmaulana4@gmail.com',
+            'phone_number' => '0812345678987',
+            'password' => bcrypt('hehe1234'),
+            'isVerified' => true,
+            'user_type' => 'TENANT',
+        ]);
     }
 }

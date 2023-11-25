@@ -10,9 +10,9 @@
         </div>
         @if (auth()->check())
             <div class="flex gap-3 items-center">
-                <p>{{ auth()->user()->name }}</p>
                 <div class="relative inline-block text-left dropdown-icon">
-                    <div class="hover:cursor-pointer">
+                    <div class="flex items-center hover:cursor-pointer">
+                        <p>{{ auth()->user()->name }}</p>
                         <svg class="-mr-1 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor"
                             aria-hidden="true">
                             <path fill-rule="evenodd"
