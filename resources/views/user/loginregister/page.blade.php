@@ -1,4 +1,6 @@
-@extends('user.layout.main')
+@extends('user.loginregister.layout.main')
+
+@section('title', 'Login Register')
 
 @section('content')
 <div>

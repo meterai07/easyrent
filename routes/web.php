@@ -25,6 +25,8 @@ Route::post('/login', [UserController::class, 'login'])->name('login');
 Route::get('/logout', [UserController::class, 'logout'])->middleware('auth');
 Route::post('/register', [UserController::class, 'register'])->name('register');
 
+Route::get('/user/profile', [UserController::class, 'profile'])->middleware('auth');
+
 Route::prefix('product')->group(function () {
     Route::get('/', [VehicleController::class, 'index'])->name('product');
     Route::get('/{id}', [VehicleController::class, 'show']);

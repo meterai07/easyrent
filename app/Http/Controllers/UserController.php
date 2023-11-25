@@ -9,17 +9,26 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
+use App\Models\Tenant;
+use App\Models\Transactional;
 
 class UserController extends Controller
 {
     public function index()
     {
-        return view('user.loginregister');
+        return view('user.loginregister.page');
     }
 
-    public function registerPage()
+    public function profile()
     {
-        return view('user.register');
+        $user = Auth::user();
+        $tenant = Tenant::where('user_id', $user->id)->first();
+        $transaction = Transactional::where('tenant_id', $user->id)->first();
+
+        return view('user.profile.page', [
+            'user' => Auth::user(),
+            'transaction' => $transaction ?? null,
+        ]);
     }
 
     public function register(StoreUserRequest $request) 
