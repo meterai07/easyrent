@@ -16,8 +16,19 @@ use Midtrans\Transaction;
 
 class TransactionalController extends Controller
 {
-    public function show(Request $request)
+
+    public function showInvoice(Request $request)
     {
+        $vehicles = Vehicle::where('id', $request->id)->first();
+        $categories = Category::where('id', $request->category_name)->first();
+
+        return view("invoice.page", [
+            'vehicles' => $vehicles,
+            'categories' => $categories
+        ]);
+    }
+    public function showTransaction(Request $request)
+    {   
         $vehicles = Vehicle::where('id', $request->id)->first();
         $categories = Category::where('id', $vehicles->category_id)->first();
 

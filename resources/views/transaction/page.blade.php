@@ -123,45 +123,15 @@
             <input type="hidden" name="tenant_id" value="{{ auth()->user()->id }}">
             <input type="hidden" name="vehicle_id" value="{{ $vehicles->id }}">
             <input type="hidden" name="total_payment" value="{{ $vehicles->price*101/100 }}">
-            <button type="submit" class="flex bg-indigo-600 hover:bg-indigo-700 text-white font-bold ml-4 mt-2 mb-8 py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
-                Pay Now
-                <div class="ml-2">
-                    <img src="../assets/ArrowRight.svg" alt="">
-                </div>
-            </button>
+            <a href="/product/{{ $vehicles->id }}/transaction">
+                <button type="submit" class="flex bg-indigo-600 hover:bg-indigo-700 text-white font-bold ml-4 mt-2 mb-8 py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+                    Next
+                    <div class="ml-2">
+                        <img src="../assets/ArrowRight.svg" alt="">
+                    </div>
+                </button>
+            </a>
         </form>
     </div>
-{{-- Aside --}}
-    <div class="float-right ml-12">
-        <div class="flex flex-col justify-center items-center" id="aside">
-            <div class="bg-white rounded shadow p-6 m-4">
-                <div class="text-left">
-                    <h1 class="text-2xl font-bold mb-1">{{ $vehicles->name }}</h1>
-                        <p class="text mb-6">{{ $categories->name }}</p>
-                    <img src="{{ asset('assets/product-detail-'.$vehicles->id.'-1.jpg') }}" alt="product" width="284px" height="auto">
-                </div>
-                <h3 class="text-base font-bold my-6">Rent Summary</h3>
-                <div class="divide-y-2 divide-neutral-950">
-                    <div>
-                        <div class="grid gap-x-auto gap-y-3 grid-cols-2 grid-rows-3 my-6">
-                            <p class="text-sm text-left">Subtotal</p>
-                            <p class="text-sm text-right">Rp {{ number_format($vehicles->price, 0, ',', '.') }}</p>
-                            <p class="text-sm text-left">Tax</p>
-                            <p class="text-sm text-right">Rp 0</p>
-                            <p class="text-sm text-left">Service fee</p>
-                            <p class="text-sm text-right">Rp {{ number_format($vehicles->price/100, 0, ',', '.') }}</p>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="grid gap-x-auto gap-y-auto grid-cols-2 grid-rows-1 my-6">
-                            <p class="text-sm font-bold text-left">Total</p>
-                            <p class="text-sm font-bold text-right">Rp {{ number_format($vehicles->price*101/100, 0, ',', '.') }}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
-
 @endsection

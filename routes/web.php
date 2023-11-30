@@ -30,8 +30,9 @@ Route::get('/user/profile', [UserController::class, 'profile'])->middleware('aut
 Route::prefix('product')->group(function () {
     Route::get('/', [VehicleController::class, 'index'])->name('product');
     Route::get('/{id}', [VehicleController::class, 'show']);
-    Route::get('/{id}/transaction', [TransactionalController::class, 'show'])->middleware('auth');
+    Route::get('/{id}/transaction', [TransactionalController::class, 'showTransaction'])->middleware('auth');
     Route::post('/transaction', [TransactionalController::class, 'transaction'])->middleware('auth');
+    Route::get('{id}/transaction/invoice', [TransactionalController::class, 'showInvoice']);
 });
 
 // Route::post('/save-transaction', [TransactionalController::class, 'store'])->name('save.transaction');
