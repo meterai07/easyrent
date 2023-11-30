@@ -17,18 +17,8 @@ use Midtrans\Transaction;
 class TransactionalController extends Controller
 {
 
-    public function showInvoice(Request $request)
+    public function show(Request $request)
     {
-        $vehicles = Vehicle::where('id', $request->id)->first();
-        $categories = Category::where('id', $request->category_name)->first();
-
-        return view("invoice.page", [
-            'vehicles' => $vehicles,
-            'categories' => $categories
-        ]);
-    }
-    public function showTransaction(Request $request)
-    {   
         $vehicles = Vehicle::where('id', $request->id)->first();
         $categories = Category::where('id', $vehicles->category_id)->first();
 
@@ -37,6 +27,16 @@ class TransactionalController extends Controller
             'categories' => $categories
         ]);
     }
+    // public function showTransaction(Request $request)
+    // {   
+    //     $vehicles = Vehicle::where('id', $request->id)->first();
+    //     $categories = Category::where('id', $vehicles->category_id)->first();
+
+    //     return view("transaction.page", [
+    //         'vehicles' => $vehicles,
+    //         'categories' => $categories
+    //     ]);
+    // }
 
     // public function invoice(StoreTransactionalRequest $request)
     // {
@@ -68,9 +68,8 @@ class TransactionalController extends Controller
     {
         $validatedData = $request->validated();
 
-        DB::transaction(function () use ($validatedData) {
             // logic buat pembayaran total harga disini
-            $totalPayment = $validatedData['total_payment'] * 1000;
+            $totalPayment = $validatedData['total_payment'];
 
             $transaction = new Transactional([
                 'tenant_id' => $validatedData['tenant_id'],
@@ -87,7 +86,6 @@ class TransactionalController extends Controller
                 'drop_off_time' => $validatedData['drop_off_time'],
                 'total_payment' => $totalPayment,
                 'payment_status' => "PROCESS",
-                'payment_method' => $validatedData['payment_method']
             ]);
 
             $transaction->save();
@@ -110,7 +108,7 @@ class TransactionalController extends Controller
             );
 
             $snapToken = Snap::getSnapToken($params);
-            return view('invoice.page', compact('snapToken', 'transaction'));
-        });
+        
+        return view('invoice.page', compact('snapToken', 'transaction'));
     }
 }

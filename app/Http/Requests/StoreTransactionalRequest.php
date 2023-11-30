@@ -35,7 +35,6 @@ class StoreTransactionalRequest extends FormRequest
             'drop_off_date' => 'required|date',
             'drop_off_location' => 'required|string|max:255',
             'drop_off_time' => 'required',
-            'payment_method' => 'required|string|max:255'
         ];
     }
 }
