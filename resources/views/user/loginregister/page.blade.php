@@ -13,7 +13,10 @@
                 <input type="text" placeholder="NIK" name="NIK">
                 <input type="email" placeholder="email" name="email">
                 <input type="number" placeholder="phone number" name="phone_number">
-                <input type="password" placeholder="Password" name="password">
+                <div class="fieldPassword">
+                    <input type="password" placeholder="Password" name="password" id="passwordRegister">
+                    <a id="showPasswordRegister"></a>
+                </div>
                 <button type="submit">Register</button>
                 <span>or use your account</span>
                 <div class="social-container">
@@ -29,7 +32,10 @@
                 @csrf
                 <h1>Login here.</h1>
                 <input type="email" placeholder="Email" name="email">
-                <input type="password" placeholder="Password" name="password">
+                <div class="fieldPassword">
+                    <input type="password" placeholder="Password" name="password" id="passwordLogin">
+                    <a id="showPasswordLogin"></a>
+                </div>
                 <div class="content">
                     <div class="checkbox">
                         <input type="checkbox" name="checkbox" id="checkbox">

@@ -92,3 +92,51 @@ document.addEventListener('DOMContentLoaded', function() {
 
     
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const btm = document.getElementById("showPasswordLogin");
+    const ksm = document.getElementById("passwordLogin");
+    const btd = document.getElementById("showPasswordRegister");
+    const ksd = document.getElementById("passwordRegister");
+
+    ksm.addEventListener("input", () => {
+        if (ksm.value == "") {
+            btm.classList.remove("eyeSlashIcon");
+            btm.classList.remove("eyeIcon");
+            ksm.type = "password";
+        } else {
+            btm.classList.add("eyeIcon");
+        }
+    });
+    btm.addEventListener("click", () => {
+        if (ksm.type == 'password'){
+            btm.classList.add("eyeSlashIcon");
+            btm.classList.remove("eyeIcon");
+            ksm.type = "text";
+        } else {
+            btm.classList.add("eyeIcon");
+            btm.classList.remove("eyeSlashIcon");
+            ksm.type = "password";
+        }
+    });
+    ksd.addEventListener("input", () => {
+        if (ksd.value == "") {
+            btd.classList.remove("eyeSlashIcon");
+            btd.classList.remove("eyeIcon");
+            ksd.type = "password";
+        } else {
+            btd.classList.add("eyeIcon");
+        }
+    });
+    btd.addEventListener("click", () => {
+        if (ksd.type == 'password'){
+            btd.classList.add("eyeSlashIcon");
+            btd.classList.remove("eyeIcon");
+            ksd.type = "text";
+        } else {
+            btd.classList.add("eyeIcon");
+            btd.classList.remove("eyeSlashIcon");
+            ksd.type = "password";
+        }
+    });
+});
