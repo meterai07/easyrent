@@ -104,7 +104,7 @@
                             </div>
                             <div>
                                 <p class="text-left text-gray-600">Rent Time</p>
-                                <p class="text-left text-xl font-semibold">{{ $days }}</p>
+                                <p class="text-left text-xl font-semibold">{{ $days }} Days</p>
                             </div>
                             <div>
                                 <p class="text-left text-gray-600">Drop Off Date</p>
