@@ -90,6 +90,13 @@ class TransactionalController extends Controller
 
             $transaction->save();
 
+            $vehicle = Vehicle::select('vehicles.*', 'brands.name as brand_name', 'categories.name as category_name', 'fuels.name as fuel_name')
+            ->join('brands', 'vehicles.brand_id', '=', 'brands.id')
+            ->join('categories', 'vehicles.category_id', '=', 'categories.id')
+            ->join('fuels', 'vehicles.fuel_id', '=', 'fuels.id')
+            ->where('vehicles.id', $transaction->vehicle_id)
+            ->first();
+
             Config::$serverKey = config('midtrans.server_key');
             Config::$isProduction = false;
             Config::$isSanitized = true;
@@ -109,6 +116,6 @@ class TransactionalController extends Controller
 
             $snapToken = Snap::getSnapToken($params);
         
-        return view('invoice.page', compact('snapToken', 'transaction'));
+        return view('invoice.page', compact('snapToken', 'transaction', 'vehicle'));
     }
 }

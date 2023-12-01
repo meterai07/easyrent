@@ -4,7 +4,7 @@
 @section("content")
 
 <div class="flex justify-center">
-    <div class="mr-12">
+    <div class="mr-3 w-7/12">
         <div class="flex flex-col justify-start">
             {{-- Judul --}}
             <div class="bg-white rounded-md p-6 m-8 shadow-lg">
@@ -22,34 +22,34 @@
             {{-- Car information detail --}}
             <div class="bg-white rounded-md p-6 m-4 shadow-lg">
                 <div class="m-8">
-                    <img src="../assets/product-detail-1-1.jpg" alt="" class="w-367 h-287 aspect-square object-cover object-center rounded-md">
+                    <img src="{{ asset('assets/product-detail-'.$vehicle->id.'-1.jpg') }}" alt="" class="w-367 h-287 aspect-video object-cover object-center rounded-md">
                 </div>
                 <div class="">
-                    <h1 class="text-center text-2xl font-bold m-4">Pajero Sport Dakar 4x4</h1>
+                    <h1 class="text-center text-2xl font-bold m-4">{{$vehicle->name}}</h1>
                     <div class="grid gap-x-40 gap-y-8 grid-cols-3 grid-rows-2 m-4">
                         <div class="ml-8">
                             <p class="text-left text-gray-600">Brand</p>
-                            <p class="text-left text-xl font-semibold">Mitsubishi</p>
+                            <p class="text-left text-xl font-semibold">{{$vehicle->brand_name}}</p>
                         </div>
                         <div>
                             <p class="text-left text-gray-600">Fuel Type</p>
-                            <p class="text-left text-xl font-semibold">Diesel</p>
+                            <p class="text-left text-xl font-semibold">{{$vehicle->fuel_name}}</p>
                         </div>
                         <div>
                             <p class="text-left text-gray-600">Year</p>
-                            <p class="text-left text-xl font-semibold">2019</p>
+                            <p class="text-left text-xl font-semibold">{{$vehicle->year}}</p>
                         </div>
                         <div class="ml-8">
                             <p class="text-left text-gray-600">Category</p>
-                            <p class="text-left text-xl font-semibold">SUV</p>
+                            <p class="text-left text-xl font-semibold">{{$vehicle->category_name}}</p>
                         </div>
                         <div>
                             <p class="text-left text-gray-600">Transmission Type</p>
-                            <p class="text-left text-xl font-semibold">Manual</p>
+                            <p class="text-left text-xl font-semibold">{{$vehicle->transmissions_type}}</p>
                         </div>
                         <div>
                             <p class="text-left text-gray-600">Price</p>
-                            <p class="text-left text-xl font-semibold">Rp 500.000/day</p>
+                            <p class="text-left text-l font-semibold">Rp {{number_format(($vehicle->price), 0, ',', '.')}}/day</p>
                         </div>
                     </div>
                 </div>
@@ -88,36 +88,74 @@
                         <h1 class="text-center text-2xl font-bold m-4 text-blue-900">Rental</h1>
                         <div class="grid gap-x-40 gap-y-8 grid-cols-3 grid-rows-2 m-8">
                             <div>
+                                @php
+                                    $pickUpDate = $transaction->pick_up_date ? new DateTime($transaction->pick_up_date) : null;
+                                    $dropOffDate = $transaction->drop_off_date ? new DateTime($transaction->drop_off_date) : null;
+                                    $interval = $pickUpDate->diff($dropOffDate);
+                                    $days = $interval->days;
+                                    $totalPrice = ($vehicle->price)*$days;
+                                @endphp
                                 <p class="text-left text-gray-600">Pick Up Date</p>
-                                <p class="text-left text-xl font-semibold">1st December 2023</p>
+                                <p class="text-left text-xl font-semibold">{{ $pickUpDate->format('jS F Y')}}</p>
                             </div>
                             <div>
                                 <p class="text-left text-gray-600">Pick Up Location</p>
-                                <p class="text-left text-xl font-semibold">Jl. Veteran No.8</p>
+                                <p class="text-left text-xl font-semibold">{{ $transaction->pick_up_location }}</p>
                             </div>
                             <div>
                                 <p class="text-left text-gray-600">Rent Time</p>
-                                <p class="text-left text-xl font-semibold">2 Days</p>
+                                <p class="text-left text-xl font-semibold">{{ $days }}</p>
                             </div>
                             <div>
                                 <p class="text-left text-gray-600">Drop Off Date</p>
-                                <p class="text-left text-xl font-semibold">3rd December 2023</p>
+                                <p class="text-left text-xl font-semibold">{{ $dropOffDate->format('jS F Y')}}</p>
                             </div>
                             <div>
                                 <p class="text-left text-gray-600">Drop Off Location</p>
-                                <p class="text-left text-xl font-semibold">Jl. Bandung No.1</p>
+                                <p class="text-left text-xl font-semibold">{{ $transaction->drop_off_location }}</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            {{-- Aside --}}
-            <aside class="w-full lg:w-7/12 px-4 hidden md:block">
-
-            </aside>
+        </div>
+    </div>
+    {{-- Aside --}}
+    <div class="float-right ml-3 w-3/12">
+        <div class="flex flex-col justify-center items-center sticky top-5 w-full" id="aside">
+            <div class="bg-white rounded shadow p-6 m-4 w-full">
+                <h1 class="text-2xl font-bold mb-1 text-blue-900">Rent Summary</h1>
+                <div class="divide-y-2 divide-neutral-950">
+                    <div>
+                        <div class="grid gap-x-auto gap-y-3 grid-cols-2 grid-rows-3 my-6">
+                            <p class="text-sm text-left">Rent Price ({{ $days }} Day)</p>
+                            <p class="text-sm text-right">Rp {{ number_format($totalPrice, 0, ',', '.') }}</p>
+                            <p class="text-sm text-left">Tax</p>
+                            <p class="text-sm text-right">Rp 0</p>
+                            <p class="text-sm text-left">Service fee</p>
+                            <p class="text-sm text-right">Rp {{ number_format($totalPrice/100, 0, ',', '.') }}</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="grid gap-x-auto gap-y-auto grid-cols-2 grid-rows-1 my-6 text-blue-900">
+                            <p class="text-sm font-bold text-left">Total</p>
+                            <p class="text-sm font-bold text-right">Rp {{ number_format($totalPrice*101/100, 0, ',', '.') }}</p>
+                        </div>
+                    </div>
+                    <a href="#">
+                        <button type="button"
+                            class="flex py-3 pl-6 pr-4 justify-center items-center gap-2 bg-blue-600 rounded-lg w-full">
+                            <h3 class="text-base font-sans font-semibold text-white">Pay Now</h3>
+                            <img src="assets/ArrowRight.svg" alt="">
+                        </button>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
+
 
 {{-- <div class="flex flex-col justify-center items-center" id="Transaction-info">
     <div class="bg-white rounded shadow p-6 m-4">
