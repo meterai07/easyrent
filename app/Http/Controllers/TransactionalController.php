@@ -135,6 +135,6 @@ class TransactionalController extends Controller
 
             $snapToken = Snap::getSnapToken($params);
         
-        return view('invoice.page', compact('snapToken', 'transaction', 'vehicle'));
+        return view('invoice.page', compact('snapToken', 'transaction', 'vehicle', 'result'));
     }
 }
