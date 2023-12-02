@@ -69,7 +69,12 @@ class TransactionalController extends Controller
         $validatedData = $request->validated();
 
             // logic buat pembayaran total harga disini
-            $totalPayment = $validatedData['total_payment'];
+            $pickUpDate = $validatedData['pick_up_date'] ? new \DateTime($validatedData['pick_up_date']) : null;
+            $dropOffDate = $validatedData['drop_off_date'] ? new \DateTime($validatedData['drop_off_date']) : null;
+            $interval = $pickUpDate->diff($dropOffDate);
+            $days = $interval->days;
+            $totalPrice = $validatedData['total_payment'] * $days;
+            $totalPayment = $totalPrice * 101 / 100;
 
             $transaction = new Transactional([
                 'tenant_id' => $validatedData['tenant_id'],
@@ -114,8 +119,15 @@ class TransactionalController extends Controller
                 ),
             );
 
+            $result = array(
+                'pickUp' => $pickUpDate,
+                'dropOff' => $dropOffDate,
+                'period' => $days,
+                'totalPrice' => $totalPrice,
+            );
+
             $snapToken = Snap::getSnapToken($params);
         
-        return view('invoice.page', compact('snapToken', 'transaction', 'vehicle'));
+        return view('invoice.page', compact('snapToken', 'transaction', 'vehicle', 'result'));
     }
 }

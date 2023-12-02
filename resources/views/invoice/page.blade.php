@@ -88,15 +88,8 @@
                         <h1 class="text-center text-2xl font-bold m-4 text-blue-900">Rental</h1>
                         <div class="grid gap-x-40 gap-y-8 grid-cols-3 grid-rows-2 m-8">
                             <div>
-                                @php
-                                    $pickUpDate = $transaction->pick_up_date ? new DateTime($transaction->pick_up_date) : null;
-                                    $dropOffDate = $transaction->drop_off_date ? new DateTime($transaction->drop_off_date) : null;
-                                    $interval = $pickUpDate->diff($dropOffDate);
-                                    $days = $interval->days;
-                                    $totalPrice = ($vehicle->price)*$days;
-                                @endphp
                                 <p class="text-left text-gray-600">Pick Up Date</p>
-                                <p class="text-left text-xl font-semibold">{{ $pickUpDate->format('jS F Y')}}</p>
+                                <p class="text-left text-xl font-semibold">{{ $result['pickUp']->format('jS F Y')}}</p>
                             </div>
                             <div>
                                 <p class="text-left text-gray-600">Pick Up Location</p>
@@ -104,11 +97,11 @@
                             </div>
                             <div>
                                 <p class="text-left text-gray-600">Rent Time</p>
-                                <p class="text-left text-xl font-semibold">{{ $days }} Days</p>
+                                <p class="text-left text-xl font-semibold">{{ $result['period'] }} Days</p>
                             </div>
                             <div>
                                 <p class="text-left text-gray-600">Drop Off Date</p>
-                                <p class="text-left text-xl font-semibold">{{ $dropOffDate->format('jS F Y')}}</p>
+                                <p class="text-left text-xl font-semibold">{{ $result['dropOff']->format('jS F Y')}}</p>
                             </div>
                             <div>
                                 <p class="text-left text-gray-600">Drop Off Location</p>
@@ -128,18 +121,18 @@
                 <div class="divide-y-2 divide-neutral-950">
                     <div>
                         <div class="grid gap-x-auto gap-y-3 grid-cols-2 grid-rows-3 my-6">
-                            <p class="text-sm text-left">Rent Price ({{ $days }} Day)</p>
-                            <p class="text-sm text-right">Rp {{ number_format($totalPrice, 0, ',', '.') }}</p>
+                            <p class="text-sm text-left">Rent Price ({{ $result['period'] }} Day)</p>
+                            <p class="text-sm text-right">Rp {{ number_format($result['totalPrice'], 0, ',', '.') }}</p>
                             <p class="text-sm text-left">Tax</p>
                             <p class="text-sm text-right">Rp 0</p>
                             <p class="text-sm text-left">Service fee</p>
-                            <p class="text-sm text-right">Rp {{ number_format($totalPrice/100, 0, ',', '.') }}</p>
+                            <p class="text-sm text-right">Rp {{ number_format($result['totalPrice']/100, 0, ',', '.') }}</p>
                         </div>
                     </div>
                     <div>
                         <div class="grid gap-x-auto gap-y-auto grid-cols-2 grid-rows-1 my-6 text-blue-900">
                             <p class="text-sm font-bold text-left">Total</p>
-                            <p class="text-sm font-bold text-right">Rp {{ number_format($totalPrice*101/100, 0, ',', '.') }}</p>
+                            <p class="text-sm font-bold text-right">Rp {{ number_format($transaction->total_payment, 0, ',', '.') }}</p>
                         </div>
                     </div>
                     <a href="#">
