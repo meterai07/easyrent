@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use DateTime;
 use Midtrans\Config;
 use App\Models\Tenant;
 use App\Models\Vehicle;
@@ -107,10 +108,16 @@ class TransactionalController extends Controller
             Config::$isSanitized = true;
             Config::$is3ds = true;
 
+            $pickUpDate = $transaction->pick_up_date ? new DateTime($transaction->pick_up_date) : null;
+            $dropOffDate = $transaction->drop_off_date ? new DateTime($transaction->drop_off_date) : null;
+            $interval = $pickUpDate->diff($dropOffDate);
+            $days = $interval->days;
+            $totalPrice = ($vehicle->price)*$days;
+
             $params = array(
                 'transaction_details' => array(
                     'order_id' => $transaction->id,
-                    'gross_amount' => $transaction->total_payment,
+                    'gross_amount' => $totalPrice*101/100,
                 ),
                 'customer_details' => array(
                     'name' => $transaction->name,
@@ -128,6 +135,6 @@ class TransactionalController extends Controller
 
             $snapToken = Snap::getSnapToken($params);
         
-        return view('invoice.page', compact('snapToken', 'transaction', 'vehicle', 'result'));
+        return view('invoice.page', compact('snapToken', 'transaction', 'vehicle'));
     }
 }
