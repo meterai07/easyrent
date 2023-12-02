@@ -135,8 +135,8 @@
                             <p class="text-sm font-bold text-right">Rp {{ number_format($transaction->total_payment, 0, ',', '.') }}</p>
                         </div>
                     </div>
-                    <a href="#">
-                        <button type="button"
+                    <a>
+                        <button type="button" id="pay-button"
                             class="flex py-3 pl-6 pr-4 justify-center items-center gap-2 bg-blue-600 rounded-lg w-full">
                             <h3 class="text-base font-sans font-semibold text-white">Pay Now</h3>
                             <img src="assets/ArrowRight.svg" alt="">

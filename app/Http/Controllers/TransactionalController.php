@@ -67,11 +67,12 @@ class TransactionalController extends Controller
 
     public function transaction(StoreTransactionalRequest $request)
     {
+        
         $validatedData = $request->validated();
 
             // logic buat pembayaran total harga disini
-            $pickUpDate = $validatedData['pick_up_date'] ? new \DateTime($validatedData['pick_up_date']) : null;
-            $dropOffDate = $validatedData['drop_off_date'] ? new \DateTime($validatedData['drop_off_date']) : null;
+            $pickUpDate = $validatedData['pick_up_date'] ? new DateTime($validatedData['pick_up_date']) : null;
+            $dropOffDate = $validatedData['drop_off_date'] ? new DateTime($validatedData['drop_off_date']) : null;
             $interval = $pickUpDate->diff($dropOffDate);
             $days = $interval->days;
             $totalPrice = $validatedData['total_payment'] * $days;
@@ -108,16 +109,10 @@ class TransactionalController extends Controller
             Config::$isSanitized = true;
             Config::$is3ds = true;
 
-            $pickUpDate = $transaction->pick_up_date ? new DateTime($transaction->pick_up_date) : null;
-            $dropOffDate = $transaction->drop_off_date ? new DateTime($transaction->drop_off_date) : null;
-            $interval = $pickUpDate->diff($dropOffDate);
-            $days = $interval->days;
-            $totalPrice = ($vehicle->price)*$days;
-
             $params = array(
                 'transaction_details' => array(
                     'order_id' => $transaction->id,
-                    'gross_amount' => $totalPrice*101/100,
+                    'gross_amount' => $totalPayment,
                 ),
                 'customer_details' => array(
                     'name' => $transaction->name,
