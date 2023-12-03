@@ -77,9 +77,10 @@ class TransactionalController extends Controller
             $days = $interval->days;
             $totalPrice = $validatedData['total_payment'] * $days;
             $totalPayment = $totalPrice * 101 / 100;
-
+            $tenant = Tenant::where('user_id', $validatedData['user_id'])->first();
+            
             $transaction = new Transactional([
-                'tenant_id' => $validatedData['tenant_id'],
+                'tenant_id' => $tenant->id,
                 'vehicle_id' => $validatedData['vehicle_id'],
                 'name' => $validatedData['name'],
                 'phone_number' => $validatedData['phone_number'],

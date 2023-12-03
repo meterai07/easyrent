@@ -72,7 +72,7 @@
                     </div>
                 </div>
             </div>
-            <input type="hidden" name="tenant_id" value="{{ auth()->user()->id }}">
+            <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
             <input type="hidden" name="vehicle_id" value="{{ $vehicles->id }}">
             <input type="hidden" name="total_payment" value="{{ $vehicles->price }}">
             <div class="flex justify-start flex-row-reverse p-4">

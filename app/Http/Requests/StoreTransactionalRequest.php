@@ -22,7 +22,7 @@ class StoreTransactionalRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'tenant_id' => ['required', 'numeric'],
+            'user_id' => ['required', 'numeric'],
             'vehicle_id' => ['required', 'numeric'],
             'total_payment' => ['required', 'numeric'],
             'name' => 'required|string|max:255',
